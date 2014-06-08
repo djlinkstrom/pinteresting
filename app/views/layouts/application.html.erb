@@ -9,8 +9,10 @@
 </head>
 <body>
 
-
-	<%= render 'layouts/header' %>
+	<% if current_page?('/') %> 
+	<% else %>
+		<%= render 'layouts/header' %>
+	<% end %>
 
 	<div class="container-full">
 		<% flash.each do |name, msg| %>

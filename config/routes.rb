@@ -1,5 +1,6 @@
 Pinteresting::Application.routes.draw do
   devise_for :users
+
   root "pages#BestTime"
   get "about" => "pages#about"
   get "home" => "pages#home"
