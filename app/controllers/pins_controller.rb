@@ -5,6 +5,7 @@ class PinsController < ApplicationController
   # GET /pins.json
   def index
     @pins = Pin.all
+    @pin = Pin.new
   end
 
   # GET /pins/1
@@ -25,10 +26,9 @@ class PinsController < ApplicationController
   # POST /pins.json
   def create
     @pin = Pin.new(pin_params)
-
     respond_to do |format|
       if @pin.save
-        format.html { redirect_to @pin, notice: 'Pin was successfully created.' }
+        format.html { redirect_to @index, notice: 'Pin was successfully created.' }
         format.json { render action: 'show', status: :created, location: @pin }
       else
         format.html { render action: 'new' }

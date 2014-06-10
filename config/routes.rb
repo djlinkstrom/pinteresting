@@ -1,9 +1,11 @@
 Pinteresting::Application.routes.draw do
+  resources :beta_users
+
   resources :pins
 
   devise_for :users
 
-  root "pages#BestTime"
+  root "beta_users#index"
   get "about" => "pages#about"
   get "home" => "pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
