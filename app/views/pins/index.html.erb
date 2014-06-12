@@ -1,93 +1,5 @@
    
-    <div class="container-full">
-      <div class="logo-center-white-no-border">
-          <div class="row custom-center">
-              <div class="col-md-12">
-                <%= image_tag "best_time_logo_text_only.png", class:"img-responsive center-block" %>
-                 <%= link_to "Partners Home", home_path %> 
-                 <p id="notice"><%= notice %></p>
-              </div>
-          </div>
-      </div>
-      <div class="logo-center-teal">
-          <div class="row">
-              <div class="col-md-4">,
-                    <%= image_tag "DemoShot.png", alt: "Find BestTime feature ot find the best time while scheduling a social event", class:"img-responsive center-block" %>
-              </div>
-
-              <div class="col-md-8">
-
-                  <h1 class="text-center-white">Make every social event the best time of your life.</h1>
-                  <br />
-                  <h3 class="text-center-white">Launching 2014</h3>
-                  <br /><br />
-                  <h3 class="text-center-white">Here's your chance to be one of the first users!</h3>
-                  <br />
-                  <p class="text-center-white">Want a sneak peak of BestTime? Enter your e-mail address to receive an invitation to our demo. You can install it on your iPhone!</p>
-                  <br />
-                  <div class="custom-center">
-                      <%= form_for(@pin) do |f| %>
-                        <div class="form-group">
-                            <%= f.label :description %>
-                            <%= f.text_field :description, class: "form-control" %>
-                          </div>
-                          <div class="form-group">
-                            <%= f.submit class: "btn btn-primary" %>
-                          </div>
-                      <% end %>
-                  </div>
-                  <p class="text-center-white-small-italic">We don't eat SPAM, so we definitely won't SPAM you.</p>
-              </div>
-
-          </div>
-      </div>
-      <div class="logo-center-white">
-          <div class="row">
-              <div class="col-md-6">
-
-                  <h1 class="text-center">BestTime simplifies social event scheduling</h1>
-                  <br />
-                  <h3 class="text-center">No more back-and-forth trying to find the time that works for everyone</h3>
-                  <br />
-                  <h3 class="text-center">BestTime aggregates everyone's free/busy times and automates the process for you. </h3>
-                  <br />
-              </div>
-              <div class="col-md-6">
-                  <%= image_tag "Best-Time-FindBestTime-Demo-Shot.png", alt:"BestTime for social event attendees", class:"img-responsive center-block" %>
-              </div>
-          </div>
-       </div>
-
-      <div class="logo-center-white">
-          <div class="row">
-              <div class="col-md-6">
-                  <%= image_tag "Best-Time-AddCalPals-Demo-Shot.png", alt:"Finding who is free ensures that social events start with the right attendees", class:"img-responsive center-block"  %>
-              </div>
-              <div class="col-md-6">
-                  <h1 class="text-center">Quickly find out who's also free when you are free</h1>
-                  <br />
-                  <h3 class="text-center">Skip the mass texts or e-mails asking who is free at a particular time. Filter by only those that are also free, and schedule an event that makes the most of that free time for both of you</h3>
-                  <br />
-              </div>
-          </div>
-      </div>
-
-      <div class="logo-center-white">
-          <div class="row">
-              <div class="col-md-6">
-                  <h1 class="text-center">See what's happening to kick start your social life</h1>
-                  <br/>
-                  <h3 class="text-center">Find events & promotions scheduled in your area, to add to your calendar and invite other friends who are also free.</h3>
-                  <br />
-                  <h3 class="text-center">Or, tag along to already scheduled social events that are occurring in your social network. The more the merrier!</h3>
-                  <br />
-               </div>
-              <div class="col-md-6">
-                  <%= image_tag "Best-Time-WhatsHappening-Demo-Shot.png", alt:"What is happening shows scheduled events in the area and events in your social network", class:"img-responsive center-block" %>
-              </div>
-          </div>
-      </div>
-   </div>
+   
 
 
 
@@ -97,6 +9,8 @@
   <thead>
     <tr>
       <th>Description</th>
+      <th> User ID</th>
+      <th>Email</th>
       <th></th>
       <th></th>
       <th></th>
@@ -107,9 +21,13 @@
     <% @pins.each do |pin| %>
       <tr>
         <td><%= pin.description %></td>
-        <td><%= link_to 'Show', pin %></td>
-        <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-        <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= pin.user_id %></td>
+        <td><%= pin.user.email if pin.user %></td>
+        <% if pin.user == current_user %>
+          <td><%= link_to 'Show', pin %></td>
+          <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
+          <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

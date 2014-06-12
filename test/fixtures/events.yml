@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  eventname: MyString
+  eventdesc: MyText
+  eventstart: 2014-06-11 19:50:33
+  eventend: 2014-06-11 19:50:33
+
+two:
+  eventname: MyString
+  eventdesc: MyText
+  eventstart: 2014-06-11 19:50:33
+  eventend: 2014-06-11 19:50:33

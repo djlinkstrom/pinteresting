@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610013614) do
+ActiveRecord::Schema.define(version: 20140611235919) do
 
   create_table "beta_users", force: true do |t|
     t.string   "email"
@@ -19,11 +19,40 @@ ActiveRecord::Schema.define(version: 20140610013614) do
     t.datetime "updated_at"
   end
 
+  create_table "events", force: true do |t|
+    t.string   "eventname"
+    t.text     "eventdesc"
+    t.datetime "eventstart"
+    t.datetime "eventend"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "location_id"
+  end
+
+  add_index "events", ["location_id"], name: "index_events_on_location_id"
+
+  create_table "locations", force: true do |t|
+    t.string   "category"
+    t.string   "placename"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "town"
+    t.string   "postcode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "locations", ["user_id"], name: "index_locations_on_user_id"
+
   create_table "pins", force: true do |t|
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "pins", ["user_id"], name: "index_pins_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

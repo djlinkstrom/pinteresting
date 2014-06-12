@@ -9,7 +9,7 @@
       </div>
       <div class="logo-center-teal">
           <div class="row">
-              <div class="col-md-4">,
+              <div class="col-md-4">
                     <%= image_tag "DemoShot.png", alt: "Find BestTime feature ot find the best time while scheduling a social event", class:"img-responsive center-block" %>
               </div>
 
@@ -86,33 +86,3 @@
       </div>
    </div>
 
-
-
-
-<h1>Listing beta_users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @beta_users.each do |beta_user| %>
-      <tr>
-        <td><%= beta_user.email %></td>
-        <td><%= link_to 'Show', beta_user %></td>
-        <td><%= link_to 'Edit', edit_beta_user_path(beta_user) %></td>
-        <td><%= link_to 'Destroy', beta_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Beta user', new_beta_user_path %>
