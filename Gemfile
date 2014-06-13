@@ -20,6 +20,7 @@ gem 'devise', '~> 3.1.0.rc2'
 gem "figaro"
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk', '~> 1.43.0'
+gem 's3_direct_upload'
 
 
 group :development, :test do
