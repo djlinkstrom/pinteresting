@@ -8,6 +8,7 @@
             <% if location.user == current_user %>
               <td><%= link_to location.placename, location %> </td>
               <td><%= location.address_1 %>, <%= location.town %></td>
+              <td> <%= image_tag location.image.url(:medium) %> </td>
             <% end %>
           </tr>
         <% end %>

@@ -37,4 +37,6 @@ Pinteresting::Application.configure do
       authentication: 'plain',
       enable_starttls_auto: true
   }
+
+  Paperclip.options[:command_path] = 'C:\Program Files\ImageMagick-6.8.9-Q16'
 end
