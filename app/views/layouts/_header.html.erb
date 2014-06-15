@@ -1,5 +1,7 @@
-	<nav class="navbar navbar-default" role="navigation">
-	  <div class="container-fluid">
+	<nav class="navbar navbar-default " role="navigation">
+	<div class="logo-center-white-no-border">
+      <div class="row custom-center">
+
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -17,13 +19,16 @@
 
 	      
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><%= link_to "About", about_path %></li>
+	        
 	        <% if user_signed_in? %> 
 	        	<li><%= link_to "Dashboard", home_path %></li>
 	        	<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %> </li>
 	        	<li><%= link_to "Account Settings", edit_user_registration_path %></li>
+	        <% else %>
+	        	<li><%= link_to "Log In", new_user_session_path, class:"btn btn-default navbar-btn" %> </li>
 	        <% end %>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
+	  </div><!-- /.row -->
+	 </div><!-- /.logo -->
 	</nav>

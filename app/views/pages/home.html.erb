@@ -1,15 +1,31 @@
-<div class="jumbotron custom-center">
-	<h1>Welcome to my test App</h1>
-
-	<% if user_signed_in? %>
-	
-	<% else %>
-		<%= link_to "Log In", new_user_session_path, class:"btn btn-default" %> 
-		<%= link_to "Sign Up", new_user_registration_path, class:"btn btn-primary" %>
-	<% end %>
-
+<div class="container-full">
+	<div class="logo-center-teal">
+		  <div class="row">
+		  	<div class="col-md-12"> 
+          		<h1 class="text-center-white">BestTime matches your events with people planning social events with their friends.</h1>
+          		<br />
+          	</div>
+		  </div>
+          <div class="row">
+          	<div class="col-md-4"> 
+          		<%= image_tag "calendar.png", alt: "Find ", class:"img-responsive center-block" %>
+          		<h3 class="text-center-white">Upload your calendar of events to BestTime</h1>
+          	</div>
+          	<div class="col-md-4"> 
+          		<%= image_tag "best-time-phone-b.png", alt: "Find ", class:"img-responsive center-block" %>
+          		<h3 class="text-center-white">Users will find your events when scheduling events with their friends</h1>
+          	</div>
+          	<div class="col-md-4"> 
+          		<%= image_tag "thumbs-up.png", alt: "Find ", class:"img-responsive center-block" %>
+          		<h3 class="text-center-white">Customers have a great time at your event. Everybody wins!</h1>
+          	</div>
+          </div>
+  		  <div class="row custom-center">
+		  	<div class="col-md-12"> 
+		  		<br />
+		  		<%= link_to "Get Started!", new_user_registration_path, class:"btn btn-lg btn-info" %>
+          		<br />
+          	</div>
+		  </div>
+    </div>
 </div>
-
-
-
-
