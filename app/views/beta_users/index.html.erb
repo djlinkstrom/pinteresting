@@ -2,15 +2,24 @@
       <div class="logo-center-white-no-border">
           <div class="row custom-center">
               <div class="col-md-12">
-                <%= image_tag "best_time_logo_text_only.png", class:"img-responsive center-block" %>
-                 <%= link_to "Partners Home", home_path %> 
+                <div class="visible-md visible-lg">
+                  <%= image_tag "best_time_logo_text_only.png", style:"padding-left:90px;"%>
+                  <%= link_to "Partners Home", home_path, class:"pull-right btn btn-primary center-vertical-main" %>
+                </div>
+                <div class="visible-sm visible-xs">
+                  <div>
+                    <%= image_tag "best_time_logo_text_only.png"%>
+                  </div> <br />
+                  <%= link_to "Partners Home", home_path,  class:"btn btn-primary" %> 
+                </div>
+
               </div>
           </div>
       </div>
       <div class="logo-center-teal">
           <div class="row">
               <div class="col-md-4">
-                    <%= image_tag "DemoShot.png", alt: "Find BestTime feature ot find the best time while scheduling a social event", class:"img-responsive center-block" %>
+                    <%= image_tag "DemoShot.png", alt: "Find BestTime feature to find the best time while scheduling a social event", class:"img-responsive center-block" %>
               </div>
 
               <div class="col-md-8">

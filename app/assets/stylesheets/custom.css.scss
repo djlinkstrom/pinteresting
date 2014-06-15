@@ -60,8 +60,15 @@
   width: 100%;
 }
 
-.center-vertical {
+.center-vertical{
     margin-top: 12px;
+    padding-left: 10px;
+    vertical-align: middle;
+    display: block;
+}
+
+.center-vertical-main{
+    margin-top: 22px;
     padding-left: 10px;
     vertical-align: middle;
     display: block;
