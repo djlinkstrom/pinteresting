@@ -5,7 +5,10 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.all
+    #@locations = Location.all
+    #@players = Player.where(current_user.= ?, 'player.team_id')
+    #@items = Item.find_all_by_user_id current_user[:id]
+    @locations = Location.find_all_by_user_id current_user[:id]
   end
 
   # GET /locations/1

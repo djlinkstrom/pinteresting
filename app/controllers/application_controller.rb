@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
   def after_registration_path_for(resource)
     home_path
   end
+
+  def set_current_user
+    User.current = current_user
+  end
 end

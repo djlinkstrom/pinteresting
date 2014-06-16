@@ -85,3 +85,29 @@
 .panel-primary-wide{
    max-width: 950px; 
 }
+
+.panel-cell {
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+    height: 300px;
+    vertical-align: middle;
+}
+
+.panel-cell-dashed {
+    text-align: center;
+    border-style: dashed;
+    border-width: 1px;
+    padding: 5px;
+    height: 300px;
+}
+
+.panel-image {
+    margin: 70px 0px 10px;
+}
+
+
+.row-space {
+    padding-bottom: 15px;
+}
