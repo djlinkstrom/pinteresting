@@ -1,20 +1,23 @@
-<div class="container-full">
-  <div class="jumbotron">
-    <h1>Your Locations</h1>
-    <table>
-      <tbody>
-        <% @locations.each do |location| %>
-          <tr>
-            <% if location.user == current_user %>
-              <td><%= link_to location.placename, location %> </td>
-              <td><%= location.address_1 %>, <%= location.town %></td>
-              <td> <%= image_tag location.image.url(:medium) %> </td>
+<div class="panel panel-primary panel-primary-wide">
+    <div class="panel-heading"><h2>Your Locations</h2></div>
+    <div class="panel-body">
+
+
+
+        <% @locations.each_slice(3)  do |location_three| %>
+        <div class="row">
+          <% location_three.each do|location| %>
+            <% if location.user == current_user %>            
+                <div class="col-md-4">
+                  <%= image_tag location.image.url(:thumb) %> <br />
+                  <%= link_to location.placename, location %> <br /> 
+                  <%= location.address_1 %>, <%= location.town %>
+                </div>              
             <% end %>
-          </tr>
+          <% end %>
+        </div>
         <% end %>
-      </tbody>
-    </table>
-  </div>
+    </div>
 </div>
 <br>
 

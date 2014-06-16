@@ -74,6 +74,14 @@
     display: block;
 }
 
-span.glyphicon-link {
-    font-size: 2em;
+.panel-primary{
+   max-width: 650px; 
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
+}
+
+.panel-primary-wide{
+   max-width: 950px; 
 }
