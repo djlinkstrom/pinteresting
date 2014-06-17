@@ -83,16 +83,16 @@
 }
 
 .panel-primary-wide{
-   max-width: 950px; 
+   max-width: 950px;
 }
 
 .panel-cell {
     text-align: center;
     border-style: solid;
     border-width: 1px;
-    padding: 5px;
     height: 300px;
-    vertical-align: middle;
+    margin: 10px 0px 10px;
+
 }
 
 .panel-cell-dashed {
@@ -101,13 +101,32 @@
     border-width: 1px;
     padding: 5px;
     height: 300px;
+    margin: 10px 0px 10px;
 }
 
 .panel-image {
+    margin: 30px 0px 10px;
+}
+
+.panel-image-calendar {
     margin: 70px 0px 10px;
 }
 
-
 .row-space {
     padding-bottom: 15px;
+}
+
+.control-label{
+    padding-top: 7px;
+    text-align: right;
+}
+
+.btn-primary-margin {
+    margin-top: 7px;
+}
+
+.assistance {
+    font-size: 13px;
+    color: #00576f;
+    padding-top: 5px;
 }

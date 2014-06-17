@@ -11,41 +11,61 @@
       </ul>
     </div>
   <% end %>
-  <div class="container-full">
-    <div class="logo-center-white-no-border">
-      <div class="row custom-center">
-        <div class="col-md-4">
-          <h1>Helper Text</h1>
-        </div>
-        <div class="col-md-8">
-          <div class="input-group input-group-sm">
-            <div class="field">
-              <%= f.label :category %> :<%= f.text_field :category, :size=>"15" %> 
-            </div>
-            <div class="field">
-              <%= f.label :placename %>: <%= f.text_field :placename, class: "form-control" %> 
-            </div>
-            <div class="field">
-              <%= f.label :address_1 %>: <%= f.text_field :address_1, class: "form-control" %> 
-            </div>
-            <div class="field">
-              <%= f.label :address_2 %>: <%= f.text_field :address_2, class: "form-control" %> 
-            </div>
-            <div class="field">
-              <%= f.label :town %>: <%= f.text_field :town, class: "form-control" %> 
-            </div>
-            <div class="field">
-              <%= f.label :postcode %>: <%= f.text_field :postcode, class: "form-control" %> 
-            </div>
-            <div class="form-group">
-              <%= f.label :image %> : <%= f.file_field :image, class: "form-control" %>
-            </div>
-            <div class="actions">
-              <%= f.submit class: "btn btn-primary" %>
-            </div>
+  <div class="panel-body">
+
+      <form class="form-horizontal" role="form">
+        <div class="form-group row">
+          <%= f.label :category, class: "control-label col-sm-2 " %>
+          <div class="col-sm-10">
+            <%= f.text_field :category, class: "form-control" %>
           </div>
         </div>
-      </div>
+        <div class="form-group row">
+          <%= f.label "Location Name", class: "col-sm-2 control-label" %>
+          <div class="col-sm-10">
+            <%= f.text_field :placename, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :address_1, class: "col-sm-2 control-label" %>
+          <div class="col-sm-10">
+            <%= f.text_field :address_1, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row">
+           <%= f.label :address_2, class: "col-sm-2 control-label" %>
+          <div class="col-sm-10">
+            <%= f.text_field :address_2, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row">
+           <%= f.label :town, class: "col-sm-2 control-label" %>
+          <div class="col-sm-10">
+            <%= f.text_field :town, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row">
+           <%= f.label :postcode, class: "col-sm-2 control-label" %>
+          <div class="col-sm-10">
+            <%= f.text_field :postcode, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row">
+           <%= f.label :image, class: "col-sm-2 control-label" %>
+          <div class="col-sm-10">
+            <%= f.file_field :image, class: "form-control" %>
+            <p class="assistance">This will be used as your default event photo if one does not exist. 300x300 jpeg or png recommended.</p> 
+          </div>
+        </div>
+        <div class="form-group row actions">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10">
+            <%= f.submit class: "btn btn-primary btn-primary-margin" %>
+          </div>
+        </div> 
+       </form>
+      
+     
     </div>
-  </div>
 <% end %>
+</div>

@@ -4,33 +4,36 @@
 
 
 
-        <% @locations.each_slice(3)  do |location_three| %>
+        <% @locations.each_slice(4)  do |location_three| %>
 
         <div class="row row-space">          
           <% location_three.each do|location| %>
             <% if location.user == current_user %>            
-                <div class="col-md-4">
-                  <div class="panel-cell">
-                    <%= image_tag location.image.url(:thumb) %> <br />
-                    <h2><%= link_to location.placename, location %></h2> <br /> 
-                    <%= location.address_1 %>, <%= location.town %>
-                  </div>
+                <div class="col-md-3 col-xs-6">
+                  <%= link_to location do %>
+                    <div class="panel-cell">
+                      <%= link_to image_tag(location.image.url(:thumb), class:"panel-image"), location %>
+                      <br />
+                      <h3><%= link_to location.placename, location %></h3><br /> 
+                      <%= location.address_1 %>, <%= location.town %>
+                    </div>
+                  <% end %>
                 </div>              
             <% end %>
             <% if location == @locations.last %>
-              <% if location_three.length != 3 %>
-                <div class="col-md-4">
+              <% if location_three.length != 4 %>
+                <div class="col-md-3 col-xs-6">
                   <div class="panel-cell-dashed">
-                      <%= image_tag "new_calendar.png" %><br /> <br />
+                      <%= image_tag "new_calendar.png", class:"panel-image-calendar" %><br /> <br />
                       <%= link_to 'New Location', new_location_path, class:"btn btn-primary" %>
                   </div>
                 </div> 
               <% else %>
                 </div>
                 <div class="row row-space">  
-                  <div class="col-md-4">
+                  <div class="col-md-3 col-xs-6">
                     <div class="panel-cell-dashed">
-                      <%= image_tag "new_calendar.png", class:"panel-image" %><br /> <br />
+                      <%= image_tag "new_calendar.png", class:"panel-image-calendar" %><br /> <br />
                       <%= link_to 'New Location', new_location_path, class:"btn btn-primary" %>
                     </div>
                   </div> 
