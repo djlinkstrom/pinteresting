@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  before_filter :load_location
   # GET /events
   # GET /events.json
   def index
@@ -14,7 +14,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = @location.events.new
   end
 
   # GET /events/1/edit
@@ -23,12 +23,11 @@ class EventsController < ApplicationController
 
   # POST /events
   # POST /events.json
-  def create
-    @event = Event.new(event_params)
-
+  def create 
+    @event = @location.events.new(event_params)
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to [@location, @event], notice: 'Event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event }
       else
         format.html { render action: 'new' }
@@ -65,6 +64,10 @@ class EventsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
+    end
+
+    def load_location
+      @location = Location.find(params[:location_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

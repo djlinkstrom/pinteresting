@@ -9,9 +9,14 @@ Pinteresting::Application.routes.draw do
 
   devise_for :users
 
+  resources :locations do
+    resources :events
+  end
+
   root "beta_users#index"
   get "about" => "pages#about"
   get "home" => "pages#home"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
