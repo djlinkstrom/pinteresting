@@ -5,8 +5,8 @@ $navbar-default-link-color: #00576f;
 $jumbotron-bg: #95a5a6;
 $brand-primary: #00576f;
 $navbar-margin-bottom: 0px;
-$form-control-margin-bottom: 7px;
 @import 'bootstrap';
+@import 'bootstrap-datetimepicker';
 
 @media screen and ( max-width: 700px ) {
   h2 {
@@ -16,3 +16,4 @@ $form-control-margin-bottom: 7px;
 .navbar-nav.navbar-right:last-child {
     margin-right: 0;
 }
+

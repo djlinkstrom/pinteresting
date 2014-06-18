@@ -21,6 +21,7 @@ gem "figaro"
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk', '~> 1.43.0'
 gem 's3_direct_upload'
+gem 'bootstrap-datetimepicker-rails'
 
 
 group :development, :test do

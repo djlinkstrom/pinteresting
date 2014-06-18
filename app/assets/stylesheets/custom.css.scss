@@ -90,8 +90,10 @@
     text-align: center;
     border-style: solid;
     border-width: 1px;
+    border-radius: 3px;
     height: 300px;
     margin: 10px 0px 10px;
+    color: #7f8c8d;
 
 }
 
@@ -99,9 +101,11 @@
     text-align: center;
     border-style: dashed;
     border-width: 1px;
+    border-radius: 3px;
     padding: 5px;
     height: 300px;
     margin: 10px 0px 10px;
+    color: #7f8c8d;
 }
 
 .panel-image {
@@ -114,6 +118,11 @@
 
 .row-space {
     padding-bottom: 15px;
+}
+
+.row-big-space {
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
 
 .control-label{
@@ -129,4 +138,12 @@
     font-size: 13px;
     color: #00576f;
     padding-top: 5px;
+}
+
+.panel-heading a {
+    color: #fff;
+}
+
+.text-align-right {
+    text-align: right;
 }

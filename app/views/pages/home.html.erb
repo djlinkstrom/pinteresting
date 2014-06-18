@@ -24,7 +24,7 @@
 		  	<div class="col-md-12"> 
 		  		<br />
 		  		<% if user_signed_in? %> 
-		        	<%= link_to "Manager Calendars!", locations_path, class:"btn btn-lg btn-info" %>
+		        	<%= link_to "Manage Calendars!", locations_path, class:"btn btn-lg btn-info" %>
 		        <% else %>
 		        	<%= link_to "Get Started!", new_user_registration_path, class:"btn btn-lg btn-info" %>
 		        <% end %>

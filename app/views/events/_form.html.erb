@@ -11,23 +11,51 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :eventname %><br>
-    <%= f.text_field :eventname %>
-  </div>
-  <div class="field">
-    <%= f.label :eventdesc %><br>
-    <%= f.text_area :eventdesc %>
-  </div>
-  <div class="field">
-    <%= f.label :eventstart %><br>
-    <%= f.datetime_select :eventstart %>
-  </div>
-  <div class="field">
-    <%= f.label :eventend %><br>
-    <%= f.datetime_select :eventend %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <div class="panel-body">
+      <form class="form-horizontal" role="form">
+        <div class="form-group row">
+          <%= f.label "Event Name", class: "control-label col-sm-2 " %>
+          <div class="col-sm-10">
+            <%= f.text_field :eventname, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label "Event Description", class: "control-label col-sm-2 " %>
+          <div class="col-sm-10">
+            <%= f.text_area :eventdesc, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label "Event Start", class: "text-align-right col-sm-2 " %>
+          <div class="col-sm-10">
+            <%= f.datetime_select :eventstart, class: "form-control  form-control-padding" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label "Event End", class: "control-label col-sm-2 " %>
+          <div class="col-sm-10">
+            <div class='input-group date' id='datetimepicker1'>
+              <input type='text' class="form-control" data-date-format="MM/DD/YYYY HH:MM PP" />
+              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row actions">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10">
+            <%= f.submit class: "btn btn-primary btn-primary-margin" %>
+          </div>
+        </div> 
+      </form>
+    </div>
 <% end %>
+</div>
+
+<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+ 

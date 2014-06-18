@@ -1,35 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-primary panel-primary-wide">
+   <div class="panel-heading">
+    <h2><%= link_to 'Manage Locations', locations_path %> > <%= @location.placename %></h2>
+   </div>
+   <div class="panel-body">
+      <div class="logo-center-white">
+        <div class="row row-big-space">
+          <div class=" col-md-6 ">
+          <%= image_tag(@location.image.url(:medium), class:"img-responsive center-block" )%>
+          </div>
+          <div class="col-md-6">
+            <h1>Placeholder for Maps</h1>
+          </div>
+        </div>
+      </div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @location.category %>
-</p>
-
-<p>
-  <strong>Placename:</strong>
-  <%= @location.placename %>
-</p>
-
-<p>
-  <strong>Address 1:</strong>
-  <%= @location.address_1 %>
-</p>
-
-<p>
-  <strong>Address 2:</strong>
-  <%= @location.address_2 %>
-</p>
-
-<p>
-  <strong>Town:</strong>
-  <%= @location.town %>
-</p>
-
-<p>
-  <strong>Postcode:</strong>
-  <%= @location.postcode %>
-</p>
-
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
-<%= link_to 'Destroy', @location, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <div class="row row-big-space">
+          <div class=" col-md-6 text-center ">
+            There are no events scheduled.
+          </div>
+          <div class=" col-md-6 ">
+            <%= link_to 'Edit Location', edit_location_path(@location), class: "btn btn-primary" %> |
+            <%= link_to '+ Add Event', new_event_path, class: "btn btn-primary" %> |
+            <%= link_to 'Destroy', @location, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning" %>
+          </div>
+        </div>
+   </div>
+</div>
