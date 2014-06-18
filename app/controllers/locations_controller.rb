@@ -9,11 +9,13 @@ class LocationsController < ApplicationController
     #@players = Player.where(current_user.= ?, 'player.team_id')
     #@items = Item.find_all_by_user_id current_user[:id]
     @locations = Location.find_all_by_user_id current_user[:id]
+
   end
 
   # GET /locations/1
   # GET /locations/1.json
   def show
+    @events = Event.find_all_by_location_id @location[:id]
   end
 
   # GET /locations/new
