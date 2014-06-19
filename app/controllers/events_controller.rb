@@ -24,7 +24,10 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create 
-    @event = @location.events.new(event_params)
+    @event = @location.events.new(event_params) 
+    if @event[:image_file_name].blank?
+      @event.update_attribute(:image, @location.image)
+    end
     respond_to do |format|
       if @event.save
         format.html { redirect_to [@location, @event], notice: 'Event was successfully created.' }
@@ -72,6 +75,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:eventname, :eventdesc, :eventstart, :eventend)
+      params.require(:event).permit(:eventname, :eventdesc, :eventstart, :eventend, :image)
     end
 end
