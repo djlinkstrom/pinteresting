@@ -1,29 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<h2><%= link_to @location.placename, @location %> > <%= @event.eventname %></h2>
+</div>
+<div class="container-full">
+  <div class="logo-center-white-no-border">
+      <div class="row">
+      	<div class="col-md-4">
+      		<%= image_tag(@location.image.url(:medium), class:"img-responsive img-rounded center-block" )%>
+      	</div>
+      	<div class="col-md-8">
+      		<div>
+      			<div class="side-by-side-left">
+	      			<h2><%= @event.eventname %></h2>
+	      			<h4>
+	      				<%= @location.placename %>, <%= @location.address_1 %>, <%= @location.town %>
+	      			</h4>
+	      		</div>		
+      		</div>
+      		<div>
+              <h3><%= @event.eventstart.strftime("%a %d %b %I:%M %p") %> - 
+              </h3>
+              <h3>
+              	<%= @event.eventend.strftime("%a %d %b %I:%M %p") %>
+              </h3>
+              <p >     
+              	(Time in <%= @event.eventstart.strftime("%Z") %>)
+              </p>
+              <%= link_to 'Edit Event', edit_location_event_path(@location,@event), class: "btn btn-primary " %> 
+            </div>	
+      	</div>
+      </div>
+  </div>
+</div>
 
-<p>
-  <strong>Eventname:</strong>
-  <%= @event.eventname %>
-</p>
 
-<p>
-  <strong>Eventdesc:</strong>
-  <%= @event.eventdesc %>
-</p>
-
-<p>
-  <strong>Eventstart:</strong>
-  <%= @event.eventstart %>
-</p>
-
-<p>
-  <strong>Eventend:</strong>
-  <%= @event.eventend %>
-</p>
-
-<p>
-  <strong>Eventend:</strong>
-  <%= @event.location_id %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>

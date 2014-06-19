@@ -23,6 +23,7 @@ gem 'aws-sdk', '~> 1.43.0'
 gem 's3_direct_upload'
 gem 'momentjs-rails', '~> 2.5.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0.1'
+gem 'hashids'
 
 
 group :development, :test do
