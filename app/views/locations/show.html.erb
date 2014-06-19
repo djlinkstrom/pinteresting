@@ -43,7 +43,7 @@
                   <h3 class="side-by-side-left"><%= event.eventstart.strftime("%I:%M %p") %> - <%= event.eventend.strftime("%I:%M %p") %></h3><p class="side-by-side-right">     (Time in <%= event.eventstart.strftime("%Z") %>)</p><%= link_to 'Edit Event', edit_location_event_path(@location,event), class: "btn btn-primary side-by-side-float-right" %> 
                 </div>
                 <div>
-                  <%= image_tag(@location.image.url(:thumb), class:"img-responsive img-circle side-by-side-left" )%>
+                  <%= image_tag(event.image.url(:thumb), class:"img-responsive img-circle side-by-side-left" )%>
                   <h1 class="side-by-side-right"><%= link_to event.eventname, location_event_path(@location,event) %></h1> 
 
                 </div>
