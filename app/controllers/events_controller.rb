@@ -24,7 +24,11 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create 
-    @event = @location.events.new(event_params) 
+    custom_event_params = event_params
+    custom_event_params[:eventstart] = DateTime.strptime(custom_event_params[:eventstart], '%m/%d/%Y %I:%M %p')
+    custom_event_params[:eventend] = DateTime.strptime(custom_event_params[:eventend], '%m/%d/%Y %I:%M %p')
+
+    @event = @location.events.new(custom_event_params)  
     if @event[:image_file_name].blank?
       @event.update_attribute(:image, @location.image)
     end
