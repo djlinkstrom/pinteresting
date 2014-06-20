@@ -17,21 +17,36 @@
         <div class="form-group row">
             <%= f.label :image, class: "col-sm-2 control-label" %>            
             <div class="col-sm-10">
-              <div id="new-image" style="display:none;">
-                <div class="side-by-side-left">
-                  <%= f.file_field :image, class: "form-control " %>
-                  <p class="assistance">This will not replace your location default photo.</p>
+              <% if @event.new_record? %>
+                <div id="new-image" style="display:none;">
+                  <div class="side-by-side-left">
+                    <%= f.file_field :image, class: "form-control " %>
+                    <p class="assistance">This will not replace your location default photo.</p>
+                  </div>
+                  <div class="side-by-side-right">
+                    <a href='#' class="btn btn-primary" onclick="toggle_image('new-image');">Use Location Image </a>
+                  </div>
+                </div>            
+                <div id="loc-image" style="display:inline;">
+                  <%= image_tag(@location.image.url(:thumb), class:"img-responsive img-circle side-by-side-left" )%>
+                  <div class="side-by-side-right">
+                    <a href='#' class="btn btn-primary " onclick="toggle_image('loc-image');">Use New Image </a>
+                  </div>
                 </div>
-                <div class="side-by-side-right">
-                  <a href='#' class="btn btn-primary" onclick="toggle_image('new-image');">Use Location Image </a>
-                </div>
-              </div>            
-              <div id="loc-image" style="display:inline;">
-                <%= image_tag(@location.image.url(:thumb), class:"img-responsive img-circle side-by-side-left" )%>
-                <div class="side-by-side-right">
-                  <a href='#' class="btn btn-primary " onclick="toggle_image('loc-image');">Use New Image </a>
-                </div>
-              </div>
+              <% else %>            
+                <div id="edit-new-image" style="display:none;">
+                  <div class="side-by-side-left">
+                    <%= f.file_field :image, class: "form-control " %>
+                    <p class="assistance">This will not replace your location default photo.</p>
+                  </div>
+                </div>   
+                <div id="current-image" style="display:inline;">
+                  <%= image_tag(@event.image.url(:thumb), class:"img-responsive img-circle side-by-side-left" )%>
+                  <div class="side-by-side-right">
+                    <a href='#' class="btn btn-primary " onclick="toggle_image_edit('current-image');">Change Image</a>
+                  </div>
+                </div>          
+              <% end %>
             </div>
         </div>
         <div class="form-group row">
@@ -83,6 +98,7 @@
  
   $(function () {
     var dateToday = new Date();
+    dateToday.setDate(dateToday.getDate()-1);
       $('#datetimepicker1').datetimepicker({
         minuteStepping:15,
         minDate:dateToday
@@ -93,10 +109,6 @@
       });
   });
 
-
-  function test(){
-    alert(document.getElementById("event_eventend_1i"));
-  }
   function toggle_image(id) {
     document.getElementById(id).style.display = 'none';
     if(id == 'loc-image'){
@@ -104,6 +116,17 @@
     }
     else{
       document.getElementById('loc-image').style.display = 'inline';
+    }
+    return false;
+}
+
+function toggle_image_edit(id) {
+    document.getElementById(id).style.display = 'none';
+    if(id == 'current-image'){
+      document.getElementById('edit-new-image').style.display = 'inline';
+    }
+    else{
+      document.getElementById('current-image').style.display = 'inline';
     }
     return false;
 }

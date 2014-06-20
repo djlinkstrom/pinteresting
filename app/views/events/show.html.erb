@@ -17,10 +17,13 @@
 	      		</div>		
       		</div>
       		<div>
-              <h3><%= @event.eventstart.strftime("%a %d %b %I:%M %p") %> - 
+      			<%= @event.eventdesc %>
+      		</div>
+      		<div>
+              <h3><%= @event.eventstart.strftime("%a, %b, %d, %Y %I:%M %p") %> - 
               </h3>
               <h3>
-              	<%= @event.eventend.strftime("%a %d %b %I:%M %p") %>
+              	<%= @event.eventend.strftime("%a, %b, %d, %Y %I:%M %p") %>
               </h3>
               <p >     
               	(Time in <%= @event.eventstart.strftime("%Z") %>)
