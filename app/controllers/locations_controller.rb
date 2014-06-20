@@ -15,7 +15,9 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
-    @events = Event.find_all_by_location_id @location[:id]
+    time = Time.now
+    @events = Event.where(:location_id => @location[:id]).where("eventend > ?", time).order('eventstart ASC, created_at ASC')
+    #@events = Event.find_all_by_location_id @location[:id]
   end
 
   # GET /locations/new

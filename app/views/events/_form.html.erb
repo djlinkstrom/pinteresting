@@ -65,17 +65,24 @@
           <%= f.label "Event Start", class: "control-label col-sm-2 " %>
           <div class="col-sm-6">
             <div class="input-group date" id="datetimepicker1">
-              <%= f.text_field :eventstart, class: "form-control"  %>
+              <% if @event.eventstart? %> 
+                <%= f.text_field :eventstart, :value => nice_date_form(@event.eventstart), class: "form-control" %>
+              <% else %>
+                  <%= f.text_field :eventstart, class: "form-control"  %>
+              <% end %>              
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-            </div>
-           
+            </div>           
           </div>     
         </div>
         <div class="form-group row">
           <%= f.label "Event End", class: "text-align-right col-sm-2 " %>
           <div class="col-sm-6">
              <div class="input-group date" id="datetimepicker2">
-              <%= f.text_field :eventend, class: "form-control"  %>
+              <% if @event.eventend? %> 
+                <%= f.text_field :eventend, :value => nice_date_form(@event.eventend), class: "form-control" %>
+              <% else %>
+                  <%= f.text_field :eventend, class: "form-control"  %>
+              <% end %>
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
             </div>
           </div>

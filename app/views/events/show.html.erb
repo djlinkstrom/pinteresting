@@ -20,13 +20,13 @@
       			<%= @event.eventdesc %>
       		</div>
       		<div>
-              <h3><%= @event.eventstart.strftime("%a, %b, %d, %Y %I:%M %p") %> - 
+              <h3><%= @event.eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%a, %b, %d, %Y %I:%M %p") %> - 
               </h3>
               <h3>
-              	<%= @event.eventend.strftime("%a, %b, %d, %Y %I:%M %p") %>
+              	<%= @event.eventend.in_time_zone('Eastern Time (US & Canada)').strftime("%a, %b, %d, %Y %I:%M %p") %>
               </h3>
               <p >     
-              	(Time in <%= @event.eventstart.strftime("%Z") %>)
+              	(Time in <%= @event.eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%Z") %>)
               </p>
               <%= link_to 'Edit Event', edit_location_event_path(@location,@event), class: "btn btn-primary " %> 
             </div>	

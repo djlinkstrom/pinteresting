@@ -13,16 +13,19 @@
           </div>
         </div>
       </div>
-
-        <div class="row row-big-space ">
-          <div class=" col-md-6 text-center ">
+        <% if @events.length == 0 %>
+          <div class="row row-big-space ">
+        <% else %>
+          <div class="row row-big-space row-bottom-border ">
+        <% end %>
+            <div class=" col-md-6 text-center ">
+            </div>
+            <div class=" col-md-6 ">
+              <%= link_to 'Edit Location', edit_location_path(@location), class: "btn btn-primary" %> |
+              <%= link_to '+ Add Event', new_location_event_path(@location), class: "btn btn-success" %> | 
+              <a href='#' class="btn btn-primary">Past Events</a>
+            </div>
           </div>
-          <div class=" col-md-6 ">
-            <%= link_to 'Edit Location', edit_location_path(@location), class: "btn btn-primary" %> |
-            <%= link_to '+ Add Event', new_location_event_path(@location), class: "btn btn-success" %> | 
-            <a href='#' class="btn btn-primary">Past Events</a>
-          </div>
-        </div>
         <% if @events.length == 0 %>
           <div class="row row-big-space">
             <div class=" col-md-6 text-center"> 
@@ -33,14 +36,14 @@
         <% @events.each do |event| %>
         <div class="row row-big-space row-bottom-border">
           <div class=" col-md-2 text-center">   
-              <div><h3><%= event.eventstart.strftime("%a") %></h3></div>
-              <div><h1><%= event.eventstart.strftime("%d") %></h1></div>
-              <div><h3><%= event.eventstart.strftime("%b") %></h3></div>
+              <div><h3><%= event.eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%a") %></h3></div>
+              <div><h1><%= event.eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%d") %></h1></div>
+              <div><h3><%= event.eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%b") %></h3></div>
           </div>
           <div class=" col-md-10 "> 
               <div>
                 <div>
-                  <h3 class="side-by-side-left"><%= event.eventstart.strftime("%I:%M %p") %> - <%= event.eventend.strftime("%I:%M %p") %></h3><p class="side-by-side-right">     (Time in <%= event.eventstart.strftime("%Z") %>)</p><%= link_to 'Edit Event', edit_location_event_path(@location,event), class: "btn btn-primary side-by-side-float-right" %> 
+                  <h3 class="side-by-side-left"><%= event.eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%I:%M %p") %> - <%= event.eventend.in_time_zone('Eastern Time (US & Canada)').strftime("%I:%M %p") %></h3><p class="side-by-side-right">     (Time in <%= event.eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%Z") %>)</p><%= link_to 'Edit Event', edit_location_event_path(@location,event), class: "btn btn-primary side-by-side-float-right" %> 
                 </div>
                 <div>
                   <%= image_tag(event.image.url(:thumb), class:"img-responsive img-circle side-by-side-left" )%>
