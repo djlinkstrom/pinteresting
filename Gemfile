@@ -26,6 +26,8 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0.1'
 gem 'hashids'
 gem 'timeliness', '~> 0.3.7'
 gem 'bootstrap-select-rails'
+gem 'google_places'
+gem 'gmaps4rails'
 
 
 group :development, :test do

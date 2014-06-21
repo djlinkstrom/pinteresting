@@ -17,6 +17,10 @@ class LocationsController < ApplicationController
   def show
     time = Time.now
     @events = Event.where(:location_id => @location[:id]).where("eventend > ?", time).order('eventstart ASC, created_at ASC')
+    @hash = Gmaps4rails.build_markers(@location) do |location, marker|
+      marker.lat "41.7678"
+      marker.lng "-72.7539"
+    end
     #@events = Event.find_all_by_location_id @location[:id]
   end
 

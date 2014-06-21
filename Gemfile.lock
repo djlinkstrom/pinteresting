@@ -60,8 +60,14 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    gmaps4rails (2.1.2)
+    google_places (0.20.0)
+      httparty
     hashids (0.3.0)
     hike (1.2.3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -82,6 +88,7 @@ GEM
     momentjs-rails (2.5.1)
       railties (>= 3.1)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     nokogiri (1.6.2.1-x86-mingw32)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
@@ -167,6 +174,8 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise (~> 3.1.0.rc2)
   figaro
+  gmaps4rails
+  google_places
   hashids
   jbuilder (~> 1.2)
   jquery-rails
