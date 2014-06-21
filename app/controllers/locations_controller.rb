@@ -35,6 +35,8 @@ class LocationsController < ApplicationController
   def create
     #@location = Location.new(location_params)
     @location = current_user.locations.build(location_params)
+    puts location_params[:timezone]
+    puts @location.timezone
     respond_to do |format|
       if @location.save
         format.html { redirect_to @location, notice: 'Location was successfully created.' }
@@ -49,6 +51,7 @@ class LocationsController < ApplicationController
   # PATCH/PUT /locations/1
   # PATCH/PUT /locations/1.json
   def update
+    puts location_params[:timezone]
     respond_to do |format|
       if @location.update(location_params)
         format.html { redirect_to @location, notice: 'Location was successfully updated.' }
@@ -78,7 +81,7 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:category, :placename, :address_1, :address_2, :town, :postcode, :image)
+      params.require(:location).permit(:category, :placename, :address_1, :address_2, :town, :postcode, :image, :timezone)
     end
 
     def correct_user

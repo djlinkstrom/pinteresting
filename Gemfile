@@ -25,6 +25,7 @@ gem 'momentjs-rails', '~> 2.5.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0.1'
 gem 'hashids'
 gem 'timeliness', '~> 0.3.7'
+gem 'bootstrap-select-rails'
 
 
 group :development, :test do

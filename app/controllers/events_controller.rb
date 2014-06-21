@@ -24,9 +24,16 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create 
-    timezone = ActiveSupport::TimeZone.new("Eastern Time (US & Canada)")
+    timezone = ActiveSupport::TimeZone.new(@location.timezone)
+    puts "$$$$$$$$$$$$$$$$$$$$$"
+    puts timezone.now.formatted_offset
+    puts @location.timezone
     custom_event_params = event_params
+    puts "$$$$$$$$$$$$$$$$$$$$$"
+    puts custom_event_params[:eventstart]
     custom_event_params[:eventstart] = DateTime.strptime(custom_event_params[:eventstart], '%m/%d/%Y %I:%M %p').change(:offset => timezone.now.formatted_offset)
+    puts "$$$$$$$$$$$$$$$$$$$$$"
+    puts custom_event_params[:eventstart]
     custom_event_params[:eventend] = DateTime.strptime(custom_event_params[:eventend], '%m/%d/%Y %I:%M %p').change(:offset => timezone.now.formatted_offset)
     @event = @location.events.new(custom_event_params)  
     if @event[:image_file_name].blank?

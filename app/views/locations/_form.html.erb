@@ -20,6 +20,12 @@
           </div>
         </div>
         <div class="form-group row">
+           <%= f.label "Time Zone", class: "col-sm-2 control-label" %>
+          <div class="col-sm-10">
+            <%= f.time_zone_select :timezone, nil, {}, {:class => 'selectpicker', 'data-style'=>'btn-primary'} %>
+          </div>
+        </div>
+        <div class="form-group row">
           <%= f.label "Location Name", class: "col-sm-2 control-label" %>
           <div class="col-sm-10">
             <%= f.text_field :placename, class: "form-control" %>
@@ -68,3 +74,6 @@
     </div>
 <% end %>
 </div>
+<script type="text/javascript">
+  $('.selectpicker').selectpicker();
+</script>
