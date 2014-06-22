@@ -29,7 +29,7 @@ class EventsController < ApplicationController
     puts timezone.now.formatted_offset
     puts @location.timezone
     custom_event_params = event_params
-    puts "$$$$$$$$$$$$$$$$$$$$$"
+    puts "$$$$$$$$$$$$$$$$$$$$$$$$"
     puts custom_event_params[:eventstart]
     custom_event_params[:eventstart] = DateTime.strptime(custom_event_params[:eventstart], '%m/%d/%Y %I:%M %p').change(:offset => timezone.now.formatted_offset)
     puts "$$$$$$$$$$$$$$$$$$$$$"
