@@ -9,9 +9,17 @@
           <%= image_tag(@location.image.url(:medium), class:"img-responsive img-rounded center-block" )%>
           </div>
           <div class="col-md-6">
-            <div style='width: 400px;'>
-              <div id="map" style='width: 400px; height: 200px;'></div>
+
+            <form action="#" onsubmit="showAddress(this.address.value); return false">
+              <p>
+                <input type="text" style="width:350px" name="address" value="West Hartford"/>
+                <input type="submit" value="Search" />
+              </p>
+              <div style='width: 400px;' class = "center-block">
+              <div id="map" style='width: 400px; height: 300px;'></div>
             </div>
+            </form>
+            
           </div>
         </div>
       </div>
@@ -69,4 +77,21 @@
     handler.fitMapToBounds();
     handler.getMap().setZoom(12);
   });
+
+  function findLocation() {
+    var address = document.getElementById('address').value;
+    alert("address");
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        alert("here");
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert('Location not found: ' + status);
+      }
+    });
+  }
   </script>

@@ -28,7 +28,20 @@ class BetaUsersController < ApplicationController
     @beta_user = BetaUser.new(beta_user_params)
     respond_to do |format|
       if @beta_user.save
-        BetaMailer.welcome_email(@beta_user).deliver
+        gb = Gibbon::API.new("c80e7f51b598c87c471deed7a7df46ef-us8")
+        puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+        list_id = '361ef94d9c'
+        puts list_id
+        result = gb.lists.subscribe({:id => list_id, 
+            :email => {:email => @beta_user.email},
+            :double_optin => false,
+            :send_welcome => true})
+        puts result
+
+
+
+
+        #BetaMailer.welcome_email(@beta_user).deliver
         format.html { redirect_to @beta_user, notice: 'Beta user was successfully created.' }
         format.json { render action: 'show', status: :created, location: @beta_user }
       else
@@ -37,6 +50,8 @@ class BetaUsersController < ApplicationController
       end
     end
   end
+
+
 
   # PATCH/PUT /beta_users/1
   # PATCH/PUT /beta_users/1.json

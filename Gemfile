@@ -28,6 +28,9 @@ gem 'timeliness', '~> 0.3.7'
 gem 'bootstrap-select-rails'
 gem 'google_places'
 gem 'gmaps4rails'
+gem 'geocoder'
+gem 'gibbon', github: "amro/gibbon"
+gem 'certified'
 
 
 group :development, :test do
