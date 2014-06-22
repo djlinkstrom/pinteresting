@@ -43,6 +43,8 @@ Pinteresting::Application.configure do
       enable_starttls_auto: true
   }
 
+  Gibbon::API.api_key = 'b94ae7bd800d253281c098243ef51dff-us8'
+
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr

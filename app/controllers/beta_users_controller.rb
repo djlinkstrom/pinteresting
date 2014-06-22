@@ -28,25 +28,20 @@ class BetaUsersController < ApplicationController
     @beta_user = BetaUser.new(beta_user_params)
     respond_to do |format|
       if @beta_user.save
-        gb = Gibbon::API.new("c80e7f51b598c87c471deed7a7df46ef-us8")
-        puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+        gb = Gibbon::API.new
         list_id = '361ef94d9c'
-        puts list_id
         result = gb.lists.subscribe({:id => list_id, 
             :email => {:email => @beta_user.email},
             :double_optin => false,
             :send_welcome => true})
+        puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
         puts result
-
-
-
-
         #BetaMailer.welcome_email(@beta_user).deliver
-        format.html { redirect_to @beta_user, notice: 'Beta user was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Beta user was successfully created.' }
         format.json { render action: 'show', status: :created, location: @beta_user }
       else
         format.html { render action: 'new' }
-        format.json { render json: @beta_user.errors, status: :unprocessable_entity }
+        format.json { render json: root_path, status: :unprocessable_entity }
       end
     end
   end

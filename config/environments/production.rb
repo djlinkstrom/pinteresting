@@ -102,4 +102,6 @@ Pinteresting::Application.configure do
     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+  Gibbon::API.api_key = ENV['MAILCHIMP_API_KEY']
 end
