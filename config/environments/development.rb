@@ -40,5 +40,6 @@ Pinteresting::Application.configure do
   #sets paperclip 
   Paperclip.options[:command_path] = 'C:\Program Files\ImageMagick-6.8.9-Q16'
 
-  Gibbon::API.api_key = 'b94ae7bd800d253281c098243ef51dff-us8'
+  Gibbon::API.api_key = ENV['MAILCHIMP_API_KEY']
+
 end
