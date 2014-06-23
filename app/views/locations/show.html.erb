@@ -72,7 +72,8 @@
       scaleControl: false
     };
   var map = new google.maps.Map(document.getElementById('map'),mapOptions);*/
-
+   var ready;
+  ready = function() {
     handler = Gmaps.build('Google');
     var map = handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
       markers = handler.addMarkers(<%=raw @hash.to_json %>);
@@ -81,6 +82,10 @@
       handler.getMap().setZoom(12);
     
     });
+  }
+
+    $(document).ready(ready);
+    $(document).on('page:load', ready);
 
  
   

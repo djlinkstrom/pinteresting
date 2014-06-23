@@ -26,17 +26,23 @@
           </div>
         </div>
         <div class="form-group row">
-          <%= f.label "Location Name", class: "col-sm-2 control-label" %>
+          <%= f.label "Business Name", class: "col-sm-2 control-label" %>
           <div class="col-sm-10">
             <%= f.text_field :placename, class: "form-control" %>
           </div>
         </div>
         <div class="form-group row">
-          <%= f.label 'auto complete', class: "col-sm-2 control-label" %>
-
-          <div class="col-sm-10">
-            <input id="pac-input" type="text" placeholder="Search Places" class="form-control">
-          </div>
+          <%= f.label 'Location Address', class: "col-sm-2 control-label" %>
+          <% if @location.new_record? %>
+            <div class="col-sm-10">
+              <input id="pac-input" type="text" placeholder="Search Places" class="form-control">
+            </div>
+          <% else %>
+            <div class="col-sm-10">
+              <input id="pac-input" type="text" value="Darren Enter it" class="form-control">
+              <script> document.getElementById("pac-input").value = "Darren enter it");</script>
+            </div>
+          <% end %>          
         </div>
 
         <div style="display:none;">
@@ -101,8 +107,8 @@
 
   var ready;
   ready = function() {
-    
-    var input = document.getElementById('pac-input');
+
+      var input = document.getElementById('pac-input');
       var autocomplete = new google.maps.places.Autocomplete(input);
       $('.selectpicker').selectpicker();
 
