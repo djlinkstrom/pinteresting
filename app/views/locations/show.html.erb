@@ -9,16 +9,10 @@
           <%= image_tag(@location.image.url(:medium), class:"img-responsive img-rounded center-block" )%>
           </div>
           <div class="col-md-6">
-
-            <form action="#" onsubmit="showAddress(this.address.value); return false">
-              <p>
-                <input type="text" style="width:350px" name="address" value="West Hartford"/>
-                <input type="submit" value="Search" />
-              </p>
               <div style='width: 400px;' class = "center-block">
-              <div id="map" style='width: 400px; height: 250px;'></div>
+              <div id="map" style='width: 400px; height: 300px;' ></div>
             </div>
-            </form>
+            
             
           </div>
         </div>
@@ -70,17 +64,83 @@
 
 
 <script type="text/javascript">
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    handler.getMap().setZoom(12);
-  });
+    /*var mapOptions = {
+      center: new google.maps.LatLng(13.731547730050778, 100.56798934936523),
+      zoom: defaultZoom,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      scrollwheel: false,
+      scaleControl: false
+    };
+  var map = new google.maps.Map(document.getElementById('map'),mapOptions);*/
 
-  function findLocation() {
+    handler = Gmaps.build('Google');
+    var map = handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(12);
+    
+    });
+
+ 
+  
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+   /* handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(12);
+    
+    });
+   /* var input = /** @type {HTMLInputElement} (
+    document.getElementById('pac-input'));
+    handler.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    var input = document.getElementById('pac-input');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.bindTo('bounds', handler);
+  
+    var place;
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {    
+    place = autocomplete.getPlace();
+    alert("here");
+  }*/
+
+
+ function findLocation() {
+    alert('here');
     var address = document.getElementById('address').value;
-    alert("address");
+    alert(address);
+   
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         alert("here");
@@ -93,5 +153,13 @@
         alert('Location not found: ' + status);
       }
     });
+    
   }
+ 
+
+   
+
+ 
+
+ 
   </script>

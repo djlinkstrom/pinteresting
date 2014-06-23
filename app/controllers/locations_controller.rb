@@ -18,8 +18,13 @@ class LocationsController < ApplicationController
     time = Time.now
     @events = Event.where(:location_id => @location[:id]).where("eventend > ?", time).order('eventstart ASC, created_at ASC')
     @hash = Gmaps4rails.build_markers(@location) do |location, marker|
-      marker.lat "41.7678"
-      marker.lng "-72.7539"
+      if(location.lat)
+        marker.lat location.lat
+        marker.lng location.lng
+      else
+        marker.lat "41.7678"
+        marker.lng "-72.7539"
+      end
     end
     #@events = Event.find_all_by_location_id @location[:id]
   end
@@ -39,8 +44,6 @@ class LocationsController < ApplicationController
   def create
     #@location = Location.new(location_params)
     @location = current_user.locations.build(location_params)
-    puts location_params[:timezone]
-    puts @location.timezone
     respond_to do |format|
       if @location.save
         format.html { redirect_to @location, notice: 'Location was successfully created.' }
@@ -85,7 +88,7 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:category, :placename, :address_1, :address_2, :town, :postcode, :image, :timezone)
+      params.require(:location).permit(:category, :placename, :address_1, :town, :postcode, :state, :lng, :lat, :image, :timezone)
     end
 
     def correct_user

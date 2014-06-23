@@ -31,6 +31,7 @@ gem 'gmaps4rails'
 gem 'geocoder'
 gem 'gibbon', github: "amro/gibbon"
 gem 'certified'
+gem 'jquery-turbolinks'
 
 
 group :development, :test do
