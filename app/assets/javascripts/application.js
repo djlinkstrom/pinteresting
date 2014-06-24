@@ -14,11 +14,11 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
-//= require turbolinks
 //= require moment
 //= require bootstrap-datetimepicker
 //= require bootstrap-select
 //= require underscore
 //= require gmaps/google
+
 //= require_tree .
 
