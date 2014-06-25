@@ -31,5 +31,47 @@
           		<br />
           	</div>
 		  </div>
-    </div>
-</div>
+         </div>
+         <div class="logo-center-white">
+          <div class="row">
+              <div class="col-md-8">
+                    <%= image_tag "Create-Event.png", alt: "Find ", class:"img-responsive center-block" %>
+               </div>
+               <div class="col-md-4">
+                    <h1 class="text-center">Add your events and locations to BestTime</h1>
+                    <br />
+                    <h3 class="text-center">You shouldn't need an IT department just to update your calendar. And you don't! Adding events is simple.</h3>
+               </div>
+          </div>
+         </div>
+         <div class="logo-center-white">
+          <div class="row">
+              <div class="col-md-8">
+                    <h1 class="text-center">Publish it on BestTime App</h1>
+                    <br />
+                    <h3 class="text-center">With the click of a button, events are now on BestTime for event and activity seekers to find.</h3>
+                    <br />
+                    <h3 class="text-center">Your events are easy to add to the users calendar and find their friends who are also free.</h3>
+                    <br />
+                    <h3 class="text-center">And your events are smart. We match users with events that are similar to others they or their friends have gone to.</h3>
+               </div>
+               <div class="col-md-4">
+                    <%= image_tag "Event-on-BestTimeApp.png", alt: "Find ", class:"img-responsive center-block" %>
+               </div>
+          </div>
+         </div>
+         <div class="logo-center-teal">
+          <div class="row custom-center">
+               <div class="col-md-12"> 
+                    <h1 class="text-center-white">What are you waiting for?</h1>
+                    <br />
+                    <% if user_signed_in? %> 
+                    <%= link_to "Manage Calendars!", locations_path, class:"btn btn-lg btn-info" %>
+                  <% else %>
+                    <%= link_to "Get Started!", new_user_registration_path, class:"btn btn-lg btn-info" %>
+                  <% end %>
+                    <br />
+               </div>
+            </div>
+
+     </div>
