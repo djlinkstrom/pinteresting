@@ -5,13 +5,13 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(resource)
-    home_path
+    locations_path
   end
   def after_sign_out_path_for(resource)
     home_path
   end
   def after_registration_path_for(resource)
-    home_path
+    locations_path
   end
 
   def set_current_user

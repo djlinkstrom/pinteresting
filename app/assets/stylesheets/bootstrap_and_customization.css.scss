@@ -5,11 +5,19 @@ $navbar-default-link-color: #00576f;
 $jumbotron-bg: #95a5a6;
 $brand-primary: #00576f;
 $navbar-margin-bottom: 0px;
+$headings-color: #7f8c8d;
+$font-size-h1: 50px;
 @import 'bootstrap';
 @import 'bootstrap-datetimepicker';
 
 @media screen and ( max-width: 700px ) {
   h2 {
+     font-size: 20px;
+  }
+  h1 {
+     font-size: 30px;
+  }
+  h3 {
      font-size: 20px;
   }
 }
