@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <title>BestTime - Promote Events to Social Event Planners</title>
+<% end %>
+
 <div class="container-full">
 	<div class="logo-center-teal">
 		  <div class="row">
@@ -34,13 +38,13 @@
          </div>
          <div class="logo-center-white">
           <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-6">
                     <%= image_tag "Create-Event.png", alt: "Find ", class:"img-responsive center-block" %>
                </div>
-               <div class="col-md-4">
-                    <h1 class="text-center">Add Your Events to BestTime</h1>
+               <div class="col-md-6">
+                    <h1 class="">Add Your Events to BestTime</h1>
                     <br />
-                    <h3 class="text-center">You shouldn't need an IT department just to update your calendar. And you don't! Adding events is simple.</h3>
+                    <h3 class="muted">You shouldn't need an IT department just to update your calendar. And you don't! Adding events is simple.</h3>
                </div>
           </div>
          </div>
@@ -49,9 +53,9 @@
               <div class="col-md-8">
                     <h1 class="text-center">Publish it on BestTime App</h1>
                     <br />
-                    <h3 class="text-center">With the click of a button, events are now on BestTime for event and activity seekers to find.</h3>
+                    <h3 class="muted">With the click of a button, events are now on BestTime for event and activity seekers to find.</h3>
                     <br />
-                    <h3 class="text-center">And your events are smart. We match users with events that are like others they or their friends have gone to.</h3>
+                    <h3 class="muted">And your events are smart. We match users with events that are like others they or their friends have gone to.</h3>
                </div>
                <div class="col-md-4">
                     <%= image_tag "Event-on-BestTimeApp.png", alt: "Find ", class:"img-responsive center-block img-rounded" %>
@@ -73,3 +77,7 @@
             </div>
 
      </div>
+
+ <script>
+     ga('send', 'pageview', '/business');
+</script>

@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BestTime - Mobile App for Organizing Social Events</title>
+  <% if content_for?(:head) %>
+  <%= content_for(:head) %>
+  <% else %>
+    <title>BestTime - Mobile App for Organizing Social Events</title>
+  <% end %>
+
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -16,7 +21,7 @@
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
         ga('create', 'UA-51730342-2', 'auto');
-        ga('send', 'pageview');
+        ga('send', 'pageview', 'index');
 
 </script>
 </head>
