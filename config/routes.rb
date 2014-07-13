@@ -16,6 +16,7 @@ Pinteresting::Application.routes.draw do
   root "beta_users#index"
   get "about" => "pages#about"
   get "contact" => "pages#contact"
+  get "press" => "pages#press"
   get "blog" => "pages#blog"
   get "home" => "pages#home"
 
