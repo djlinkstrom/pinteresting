@@ -4,7 +4,7 @@
               <div class="col-md-12">
                 <div class="visible-md visible-lg ">
                   <%= image_tag "best_time_logo_text_only.png",  style:"padding-left:90px;"%>
-                  <%= link_to "Businesses", home_path, class:"pull-right btn btn-primary center-vertical-main" %>
+                  <%= link_to "Publishers", home_path, class:"pull-right btn btn-primary center-vertical-main" %>
                 </div>
                 <div class="visible-xs visible-sm">
                   <div>
@@ -23,33 +23,54 @@
                 <%= image_tag "DemoShot-sm.png", alt: "Find BestTime feature to find the best time while scheduling a social event", class:"img-responsive center-block  hidden-md hidden-lg hidden-sm" %>            
               </div>
               <div class="col-md-8 col-sm-8 col-xs-6 ">
-                  <h1 class="text-center-white">Make every social event the best time of your life.</h1>
-                  <br />
+                <% if flash[:signed_up] %>
+                  <h1 class="text-center-white">You're in!</h1><br /><br />
+                  <h2 class="text-center-white">Invite your friends so they can plan great social events with you!</h3> <br />
                   <div class="hidden-xs">
-                    <br />
-                    
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <%= image_tag "apple_appstore_comingsoon.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive ", style:"float:right;" %>
-                      </div>
-                      <div class="col-sm-6">
-                        <%= image_tag "google_playstore_comingsoon.png", alt: "BestTime Android App soming soon to google app play store", class:"img-responsive " %>
-                      </div>
-                   </div> <br /> <br />
-                    <h3 class="text-center-white">Here's your chance to be one of the first users!</h3>
-                    <br />
-                    <p class="text-center-white">Want a sneak peak of BestTime? Enter your e-mail address to receive an invitation to our demo.</p>
-                    <br />
-                    <div class="custom-center">
-                        <%= form_for(@beta_user) do |f| %>
-                          <div class="custom-center">
-                              <%= f.text_field :email, size: "35", placeholder: "Enter your email address" %>
-                         
-                            <%= f.submit "Sign Me Up", class: "btn btn-success" %>
-                          </div>
-                        <% end %>
-
+                    <div class="col-sm-6">
+                      <a href="http://ctt.ec/4a_Sl" target="_blank"><%= image_tag "tweet-graphic-4.png", alt: "Tweet BestTime", class:"img-responsive ", style:"float:right;" %></a>
                     </div>
+                    <div class="col-sm-6">
+                      <span class='st_email_large'></span>
+                    </div>
+                  </div>
+                  <div class="hidden-sm hidden-md hidden-lg">
+                    <div class="col-xs-12">
+                      <a href="http://ctt.ec/4a_Sl" target="_blank"><%= image_tag "tweet-graphic-4.png", alt: "Tweet BestTime", class:"img-responsive center-block " %></a>
+                    </div>
+                  </div>
+                 <br /> <br /> 
+                  <% else %>
+                    <h1 class="text-center-white">Make every social event the best time of your life.</h1>
+                    <br />
+                  
+                    <div class="hidden-xs">
+                      <br />
+                      
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <%= image_tag "apple_appstore_comingsoon.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive ", style:"float:right;" %>
+                        </div>
+                        <div class="col-sm-6">
+                          <%= image_tag "google_playstore_comingsoon.png", alt: "BestTime Android App soming soon to google app play store", class:"img-responsive " %>
+                        </div>
+                      </div>
+                      <br /> <br />
+                      <h3 class="text-center-white">Here's your chance to be one of the first users!</h3>
+                      <br />
+                      <p class="text-center-white">Want a sneak peak of BestTime? Enter your e-mail address to receive an invitation to our demo.</p>
+                      <br />
+                      <div class="custom-center">
+                          <%= form_for(@beta_user) do |f| %>
+                            <div class="custom-center">
+                                <%= f.text_field :email, size: "35", placeholder: "Enter your email address" %>
+                           
+                              <%= f.submit "Sign Me Up", class: "btn btn-success" %>
+                            </div>
+                          <% end %>
+
+                      </div>
+                    <% end %>
                   </div>
               </div>
 
@@ -57,31 +78,33 @@
         
           <div class="row visible-xs">
             <br />
-            <div class="col-xs-12 ">
-                    <div class="row">
-                      <div class="col-xs-6">
-                        <%= image_tag "apple_appstore_comingsoon.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive ", style:"float:right;" %>
+            <% if !flash[:signed_up] %>
+              <div class="col-xs-12 ">
+                      <div class="row">
+                        <div class="col-xs-6">
+                          <%= image_tag "apple_appstore_comingsoon.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive ", style:"float:right;" %>
+                        </div>
+                        <div class="col-xs-6">
+                          <%= image_tag "google_playstore_comingsoon.png", alt: "BestTime Android App soming soon to google app play store", class:"img-responsive " %>
+                        </div>
                       </div>
-                      <div class="col-xs-6">
-                        <%= image_tag "google_playstore_comingsoon.png", alt: "BestTime Android App soming soon to google app play store", class:"img-responsive " %>
+                      <br /> 
+                      <h3 class="text-center-white">Here's your chance to be one of the first users!</h3>
+                      <br />
+                      <p class="text-center-white">Want a sneak peak of BestTime? Enter your e-mail address to receive an invitation to our demo.</p>
+                      <br />
+                      <div class="custom-center">
+                          <%= form_for(@beta_user) do |f| %>
+                            <div class="custom-center">
+                                <%= f.text_field :email, size: "35", placeholder: "Enter your email address" %>
+                           
+                              <%= f.submit "Sign Me Up", class: "btn btn-success" %>
+                            </div>
+                          <% end %>
+                          <br />
                       </div>
-                    </div>
-                    <br /> 
-                    <h3 class="text-center-white">Here's your chance to be one of the first users!</h3>
-                    <br />
-                    <p class="text-center-white">Want a sneak peak of BestTime? Enter your e-mail address to receive an invitation to our demo.</p>
-                    <br />
-                    <div class="custom-center">
-                        <%= form_for(@beta_user) do |f| %>
-                          <div class="custom-center">
-                              <%= f.text_field :email, size: "35", placeholder: "Enter your email address" %>
-                         
-                            <%= f.submit "Sign Me Up", class: "btn btn-success" %>
-                          </div>
-                        <% end %>
-                        <br />
-                    </div>
-          </div>
+            </div>
+          <% end %>
       </div>
       </div>
       

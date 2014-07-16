@@ -37,7 +37,7 @@ class BetaUsersController < ApplicationController
         puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
         puts result
         #BetaMailer.welcome_email(@beta_user).deliver
-        format.html { redirect_to root_path, notice: 'Beta user was successfully created.' }
+        format.html { redirect_to root_path, flash: { signed_up: true } }
         format.json { render action: 'show', status: :created, location: @beta_user }
       else
         format.html { render action: 'new' }
