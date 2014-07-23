@@ -1,195 +1,152 @@
-<div class="container-full">
-      <div class="logo-center-white-no-border">
-          <div class="row custom-center">
-              <div class="col-md-12">
-                <div class="visible-md visible-lg ">
-                  <%= image_tag "best_time_logo_text_only.png",  style:"padding-left:90px;"%>
-                  <%= link_to "Publishers", home_path, class:"pull-right btn btn-primary center-vertical-main" %>
-                </div>
-                <div class="visible-xs visible-sm">
-                  <div>
-                    <%= image_tag "best_time_logo_text_only.png", class:"img-responsive center-block"%>
-                  </div> <br />
-                  <%= link_to "Businesses", home_path,  class:"btn btn-primary" %> 
-                </div>
-
-              </div>
-          </div>
-      </div>
-      <div class="logo-center-teal">          
-          <div class="row ">
-              <div class="col-md-4 col-sm-4 col-xs-6">                    
-                <%= image_tag "DemoShot.png", alt: "Find BestTime feature to find the best time while scheduling a social event", class:"img-responsive center-block hidden-xs " %>                     
-                <%= image_tag "DemoShot-sm.png", alt: "Find BestTime feature to find the best time while scheduling a social event", class:"img-responsive center-block  hidden-md hidden-lg hidden-sm" %>            
-              </div>
-              <div class="col-md-8 col-sm-8 col-xs-6 ">
-                <% if flash[:signed_up] %>
-                  <h1 class="text-center-white">You're in!</h1><br /><br />
-                  <h2 class="text-center-white">Invite your friends so they can plan great social events with you!</h3> <br />
-                  <div class="hidden-xs">
-                    <div class="col-sm-6">
-                      <a href="http://ctt.ec/4a_Sl" target="_blank"><%= image_tag "tweet-graphic-4.png", alt: "Tweet BestTime", class:"img-responsive ", style:"float:right;" %></a>
-                    </div>
-                    <div class="col-sm-6">
-                      <span class='st_email_large'></span>
-                    </div>
-                  </div>
-                  <div class="hidden-sm hidden-md hidden-lg">
-                    <div class="col-xs-12">
-                      <a href="http://ctt.ec/4a_Sl" target="_blank"><%= image_tag "tweet-graphic-4.png", alt: "Tweet BestTime", class:"img-responsive center-block " %></a>
-                    </div>
-                  </div>
-                 <br /> <br /> 
-                  <% else %>
-                    <h1 class="text-center-white">Make every social event the best time of your life.</h1>
-                    <br />
-                  
-                    <div class="hidden-xs">
-                      <br />
-                      
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <%= image_tag "apple_appstore_comingsoon.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive ", style:"float:right;" %>
-                        </div>
-                        <div class="col-sm-6">
-                          <%= image_tag "google_playstore_comingsoon.png", alt: "BestTime Android App soming soon to google app play store", class:"img-responsive " %>
-                        </div>
-                      </div>
-                      <br /> <br />
-                      <h3 class="text-center-white">Here's your chance to be one of the first users!</h3>
-                      <br />
-                      <p class="text-center-white">Want a sneak peak of BestTime? Enter your e-mail address to receive an invitation to our demo.</p>
-                      <br />
-                      <div class="custom-center">
-                          <%= form_for(@beta_user) do |f| %>
-                            <div class="custom-center">
-                                <%= f.text_field :email, size: "35", placeholder: "Enter your email address" %>
-                           
-                              <%= f.submit "Sign Me Up", class: "btn btn-success" %>
-                            </div>
-                          <% end %>
-
-                      </div>
-                    <% end %>
-                  </div>
-              </div>
-
-          </div>
-        
-          <div class="row visible-xs">
-            <br />
-            <% if !flash[:signed_up] %>
-              <div class="col-xs-12 ">
-                      <div class="row">
-                        <div class="col-xs-6">
-                          <%= image_tag "apple_appstore_comingsoon.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive ", style:"float:right;" %>
-                        </div>
-                        <div class="col-xs-6">
-                          <%= image_tag "google_playstore_comingsoon.png", alt: "BestTime Android App soming soon to google app play store", class:"img-responsive " %>
-                        </div>
-                      </div>
-                      <br /> 
-                      <h3 class="text-center-white">Here's your chance to be one of the first users!</h3>
-                      <br />
-                      <p class="text-center-white">Want a sneak peak of BestTime? Enter your e-mail address to receive an invitation to our demo.</p>
-                      <br />
-                      <div class="custom-center">
-                          <%= form_for(@beta_user) do |f| %>
-                            <div class="custom-center">
-                                <%= f.text_field :email, size: "35", placeholder: "Enter your email address" %>
-                           
-                              <%= f.submit "Sign Me Up", class: "btn btn-success" %>
-                            </div>
-                          <% end %>
-                          <br />
-                      </div>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <%= image_tag "best_time_logo_very_small.png" %>
             </div>
-          <% end %>
-      </div>
-      </div>
-      
-      <div class="logo-center-white">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <%= link_to "Publishers", home_path%>
+                    </li>
+                    <li>
+                        <%= link_to "About", about_path%>
+                    </li>
+                    <li>
+                        <%= link_to "Contact Us", contact_path %> 
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+      <div class="intro-header">
+        <div class="container">
           <div class="row">
-              <div class="col-sm-8 col">
+              <div class="col-lg-12">
+                  <div class="intro-message">
+                      <h1>Plan better social events, faster.</h1><br />  
+                      <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                              <%= image_tag "apple_appstore_comingsoon.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive " %>
 
-                  <h1>Find the Best Time<br />
-                    
-                  </h1>
-
-                  <br />
-                  <h3 class="muted">Avoid the back-and-forth trying to find the time that works for everyone. BestTime automates the process for you - saving you hours and sometimes days!</h3>
-                  
-                  <br />
-                  <h3 class="muted">Schedule the event at the time that works for everyone. </h3>
-                  <br />
+                            </li>
+                            <li>
+                                <%= image_tag "google_playstore_comingsoon.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive " %>
+                            </li> 
+                          </ul> 
+                        <hr class="intro-divider">                  
+                      <h3 class="text-center-white">Here's your chance to be one of the first users!</h3><br />                      
+                      <div class="custom-center">
+                        <%= form_for(@beta_user) do |f| %>
+                          <div class="custom-center">
+                              <%= f.text_field :email, size: "35", placeholder: "Enter your email address" %>
+                         
+                            <%= f.submit "Sign Me Up", class: "btn btn-success" %>
+                          </div>
+                        <% end %>
+                      </div>
+                  </div>
               </div>
-              <div class="col-sm-4">
-                <%= image_tag "Best-Time-FindBestTime-Demo-Shot.png", alt: "BestTime for social event attendees", class:"img-responsive center-block hidden-xs " %>                
-                <%= image_tag "Best-Time-FindBestTime-Demo-Shot-sm.png", alt: "BestTime for social event attendees", class:"img-responsive center-block  hidden-md hidden-lg hidden-sm" %> 
-              </div>
-          </div>
-       </div>
-
-      <div class="logo-center-white">
-          <div class="row">
-              <div class="col-sm-4">
-                  <%= image_tag "Best-Time-AddCalPals-Demo-Shot.png", alt:"Finding who is free ensures that social events start with the right attendees", class:"img-responsive center-block hidden-xs "  %>
-                  <%= image_tag "Best-Time-AddCalPals-Demo-Shot-sm.png", alt:"Finding who is free ensures that social events start with the right attendees", class:"img-responsive center-block  hidden-md hidden-lg hidden-sm" %>
-              </div>
-              <div class="col-sm-8">
-                  <h1>Who Is Free<br />
-
-                  </h1>
-                  <br class="" />
-                  <h3 class="muted">No more mass texts or e-mails asking who is free. Quickly find out who's also free when you are. </h3>
-                  <br />
-                  <h3 class="muted"> Find friends who are also free, and schedule an event. Make the most of that free time for both of you.
-                  </h3>
-                  <br />
-              </div>
-          </div>
-      </div>
-      <div class="logo-center-white">
-          <div class="row">
-              <div class="col-sm-8">
-                  <h1>Don't Miss Out on the Best Events<br />
-                    
-                  </h1>
-                  <br/>
-                  <h3 class="muted">See what's already happening to kick start your social life. Find the best events & activities already scheduled in your area. Add it to your calendar and invite your friends who are also free.</h3>
-                  <br />
-                  <h3 class="muted">Or, tag along to already scheduled social events that are occurring in your social network. The more the merrier!</h3>
-                  <br />
-               </div>
-              <div class="col-sm-4">
-                <%= image_tag "Best-Time-WhatsHappening-Demo-Shot.png", alt:"What is happening shows scheduled events in the area and events in your social network", class:"img-responsive center-block hidden-xs " %>
-                <%= image_tag "Best-Time-WhatsHappening-Demo-Shot-sm.png", alt:"What is happening shows scheduled events in the area and events in your social network", class:"img-responsive center-block  hidden-md hidden-lg hidden-sm"  %>
-              </div>
-          </div>
-      </div>
-      <div class="logo-center-teal">          
-          <div class="row ">
-              <div class="col-md-4 col-sm-4">
-                    <%= image_tag "best-time-sync.png", alt: "BestTime syncs all of your calendars for accurate free and available times", class:"img-responsive center-block hidden-xs " %>
-                    <%= image_tag "best-time-sync-sm.png", alt: "BestTime syncs all of your calendars for accurate free and available times", class:"img-responsive center-block  hidden-md hidden-lg hidden-sm" %>
-
-              </div>
-              <div class="col-md-8 col-sm-8 ">
-                  <h1 class="text-white">Sync all your Calendars</h1>
-                  <br />
-                  <h3 class="text-white">BestTime syncs with your Google Calendar, Facebook and iCal events. Your calendar will be up to date with all other events you already have scheduled.</h3>   
-              </div>
-          </div>
-      </div>
-      <div class="logo-center-teal">
-        <div class="row custom-center">
-          <div class="col-xs-12">
-            <h2 class="text-center-white">How does it work?  </h2>
-            <%= link_to "About Us", about_path, class:"btn btn-lg btn-info" %>
-          </div>
+            </div>
         </div>
       </div>
-      <div class="logo-center-grey">
+      <!-- /.intro-header -->
+      <div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h1 class="muted">Find the Best Time<br /> </h1>
+                    <p class="lead">Avoid the back-and-forth trying to find the time that works for everyone. BestTime automates the process for you - saving you hours and sometimes days!</p>
+                    <p class="lead">Schedule the event at the time that works for everyone.</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                  <%= image_tag "DemoShot.png", alt: "Find BestTime feature to find the best time while scheduling a social event", class:"img-responsive center-block" %>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.content-section-a -->
+      <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h1 class="muted">Who Is Free<br /> </h1>
+                    <p class="lead">No more mass texts or e-mails asking who is free. Quickly find out who's also free when you are.</p>
+                    <p class="lead">Find friends who are also free, and schedule an event. Make the most of that free time for both of you.</p>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                  <%= image_tag "Best-Time-AddCalPals-Demo-Shot.png", alt:"Finding who is free ensures that social events start with the right attendees", class:"img-responsive center-block"  %>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-b -->
+    <div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h1 class="muted">Don't Miss Out on the Best Events<br /> </h1>
+                    <p class="lead">See what's already happening to kick start your social life.  Add it to your calendar and invite your friends who are also free.</p>
+                    <p class="lead">Or, tag along to already scheduled social events that are occurring in your social network. The more the merrier!</p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 col-sm-6">
+                  <%= image_tag "Best-Time-WhatsHappening-Demo-Shot.png", alt: "Find BestTime feature to find the best time while scheduling a social event", class:"img-responsive center-block" %>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.content-section-a -->
+       <div class="logo-center-teal">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h1 class="text-white">Sync all your Calendars<br /></h1>                    
+                    <p class="lead text-white">BestTime syncs with your Google Calendar, Facebook and iCal events. Your calendar will be up to date with all other events you already have scheduled.</p>   
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <%= image_tag "best-time-sync.png", alt: "BestTime syncs all of your calendars for accurate free and available times", class:"img-responsive center-block " %>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-b -->
+    <div class="logo-center-grey">
           <div class="row custom-center">
             <div class="col-md-12">
                   <h2 class="text-white">
@@ -198,10 +155,6 @@
             </div>
           </div>
       </div>
-      
 
 
-
-
-    
-
+</div>
