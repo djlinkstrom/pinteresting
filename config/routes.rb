@@ -1,12 +1,5 @@
 Pinteresting::Application.routes.draw do
-  namespace :api do
-    namespace :v1 do
-      resources :events
-      resources :locations do
-        resources :events
-      end
-    end
-  end
+ 
 
 
   resources :events
