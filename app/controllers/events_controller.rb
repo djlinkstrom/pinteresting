@@ -14,12 +14,21 @@ class EventsController < ApplicationController
 
   def nearby
     @nearby_events = []
-    @locations = Location.near([41.7678, -72.7539], 20)
+    @locations= view_context.getNearbyLocations()
     @locations.each do |location|
       @events = Event.where(:location_id => location.id)
       @events.each do |event|
         @nearby_events_hash = { location: location, event: event}
-        @nearby_events.push(@nearby_events_hash)
+        if @nearby_events.empty?
+          @nearby_events.push(@nearby_events_hash)
+        else
+          @place = 0
+          @nearby_events.each do |nearby_event|  
+            break if nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)') > event.eventstart.in_time_zone('Eastern Time (US & Canada)')
+            @place = @place + 1
+          end          
+          @nearby_events.insert(@place, @nearby_events_hash)          
+        end
       end
     end
     #@events = Event.all

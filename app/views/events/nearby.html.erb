@@ -10,28 +10,34 @@
         </div>
       </div>
     <% else %>
+    	<% @curr_date = @nearby_events.first[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').to_date %>
+    	<div class="row logo-center-grey text-center-white">
+    		<h2><%= @curr_date.strftime("%a %d %b") %></h2>
+    	</div>
     	<% @nearby_events.each do |nearby_event| %>
+    		<% if @curr_date != nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').to_date %>
+    		<div class="row logo-center-grey text-center-white">
+    			<% @curr_date = nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').to_date %>
+    			<h2><%= @curr_date.strftime("%a %b %d") %></h2>
+    		</div>
+    		<% end %>
 	        <div class="row row-big-space row-bottom-border">
 	          <div class=" col-md-2 text-center">   
 	              <div><h3><%= nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%a") %></h3></div>
 	              <div><h1><%= nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%d") %></h1></div>
 	              <div><h3><%= nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%b") %></h3></div>
 	          </div>
-	          <div class=" col-md-10 "> 
-	              <div>
-	                <div>
-	                  <h3 class="side-by-side-left"><%= nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%I:%M %p") %> - <%= nearby_event[:event].eventend.in_time_zone('Eastern Time (US & Canada)').strftime("%I:%M %p") %></h3><p class="side-by-side-right">     (Time in <%= nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%Z") %>)</p>
-	                </div>
-	                <div>
-	                  <%= image_tag(nearby_event[:event].image.url(:thumb), class:"img-responsive img-circle side-by-side-left" )%>
-	                  <div class="side-by-side-right">
-	                  	<h1><%= nearby_event[:event].eventname %></h1> 
-	                  	<p class="muted"><b><%= nearby_event[:location].placename %></b> - <i><%= nearby_event[:location].address %></i></p>
-	                  </div>
-
-	                </div>
-	              </div>
-	          </div>
+	          <div class=" col-md-10"> 
+	          	<div class="center-vertical">
+		             <%= image_tag(nearby_event[:event].image.url(:thumb), class:"img-responsive img-circle side-by-side-left" )%>
+		             <div class="side-by-side-right" >
+	              		<h2><%= nearby_event[:event].eventname %></h2> 
+	              	</div>
+	         	</div>
+	         	<div class="center-vertical">
+                  <p class="side-by-side-left"><%= nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%I:%M %p") %> (<%= nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%Z") %>) | <%= nearby_event[:location].placename %> - <i><%= nearby_event[:location].address %></i></p>
+                </div>  
+	          </div>	          
 	        </div>
         <% end %>
     <% end %>
