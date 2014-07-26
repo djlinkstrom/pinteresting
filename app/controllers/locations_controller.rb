@@ -2,6 +2,7 @@ class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: []
 
+
   # GET /locations
   # GET /locations.json
   def index
@@ -18,9 +19,9 @@ class LocationsController < ApplicationController
     time = Time.now
     @events = Event.where(:location_id => @location[:id]).where("eventend > ?", time).order('eventstart ASC, created_at ASC')
     @hash = Gmaps4rails.build_markers(@location) do |location, marker|
-      if(location.lat)
-        marker.lat location.lat
-        marker.lng location.lng
+      if(location.latitude)
+        marker.lat location.latitude
+        marker.lng location.longitude
       else
         marker.lat "41.7678"
         marker.lng "-72.7539"
@@ -88,7 +89,7 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:category, :placename, :address_1, :town, :postcode, :state, :lng, :lat, :image, :timezone)
+      params.require(:location).permit(:category, :placename, :address, :longitude, :latitude, :image, :timezone)
     end
 
     def correct_user

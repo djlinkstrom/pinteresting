@@ -12,6 +12,20 @@ class EventsController < ApplicationController
   def show
   end
 
+  def nearby
+    @nearby_events = []
+    @locations = Location.near([41.7678, -72.7539], 20)
+    @locations.each do |location|
+      @events = Event.where(:location_id => location.id)
+      @events.each do |event|
+        @nearby_events_hash = { location: location, event: event}
+        @nearby_events.push(@nearby_events_hash)
+      end
+    end
+    #@events = Event.all
+    #@events = Event.where("location.lat = 41.7678")
+  end
+
   # GET /events/new
   def new
     @event = @location.events.new
@@ -25,15 +39,8 @@ class EventsController < ApplicationController
   # POST /events.json
   def create 
     timezone = ActiveSupport::TimeZone.new(@location.timezone)
-    puts "$$$$$$$$$$$$$$$$$$$$$"
-    puts timezone.now.formatted_offset
-    puts @location.timezone
     custom_event_params = event_params
-    puts "$$$$$$$$$$$$$$$$$$$$$$$$"
-    puts custom_event_params[:eventstart]
     custom_event_params[:eventstart] = DateTime.strptime(custom_event_params[:eventstart], '%m/%d/%Y %I:%M %p').change(:offset => timezone.now.formatted_offset)
-    puts "$$$$$$$$$$$$$$$$$$$$$"
-    puts custom_event_params[:eventstart]
     custom_event_params[:eventend] = DateTime.strptime(custom_event_params[:eventend], '%m/%d/%Y %I:%M %p').change(:offset => timezone.now.formatted_offset)
     @event = @location.events.new(custom_event_params)  
     if @event[:image_file_name].blank?
@@ -81,7 +88,10 @@ class EventsController < ApplicationController
     end
 
     def load_location
-      @location = Location.find(params[:location_id])
+      if params[:location_id].blank?
+      else
+        @location = Location.find(params[:location_id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

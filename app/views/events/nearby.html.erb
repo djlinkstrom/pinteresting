@@ -1,0 +1,42 @@
+<div class="panel panel-primary panel-primary-wide">
+   <div class="panel-heading">
+    <h2>Nearby Events</h2>
+   </div>
+   <div class="panel-body">
+   	<% if @nearby_events.length == 0 %>      
+  	  <div class="row row-big-space">
+        <div class=" col-md-6 text-center"> 
+          <h4>There are no upcoming events scheduled</h4>
+        </div>
+      </div>
+    <% else %>
+    	<% @nearby_events.each do |nearby_event| %>
+	        <div class="row row-big-space row-bottom-border">
+	          <div class=" col-md-2 text-center">   
+	              <div><h3><%= nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%a") %></h3></div>
+	              <div><h1><%= nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%d") %></h1></div>
+	              <div><h3><%= nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%b") %></h3></div>
+	          </div>
+	          <div class=" col-md-10 "> 
+	              <div>
+	                <div>
+	                  <h3 class="side-by-side-left"><%= nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%I:%M %p") %> - <%= nearby_event[:event].eventend.in_time_zone('Eastern Time (US & Canada)').strftime("%I:%M %p") %></h3><p class="side-by-side-right">     (Time in <%= nearby_event[:event].eventstart.in_time_zone('Eastern Time (US & Canada)').strftime("%Z") %>)</p>
+	                </div>
+	                <div>
+	                  <%= image_tag(nearby_event[:event].image.url(:thumb), class:"img-responsive img-circle side-by-side-left" )%>
+	                  <div class="side-by-side-right">
+	                  	<h1><%= nearby_event[:event].eventname %></h1> 
+	                  	<p class="muted"><b><%= nearby_event[:location].placename %></b> - <i><%= nearby_event[:location].address %></i></p>
+	                  </div>
+
+	                </div>
+	              </div>
+	          </div>
+	        </div>
+        <% end %>
+    <% end %>
+    </div>
+</div>
+
+
+

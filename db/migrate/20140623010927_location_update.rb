@@ -6,5 +6,7 @@ class LocationUpdate < ActiveRecord::Migration
     add_column :locations, :lat, :string
     add_column :locations, :lng, :string
 
+
+
   end
 end

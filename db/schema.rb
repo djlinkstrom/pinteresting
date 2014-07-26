@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140623010927) do
+ActiveRecord::Schema.define(version: 20140724225912) do
 
   create_table "beta_users", force: true do |t|
     t.string   "email"
@@ -38,9 +38,6 @@ ActiveRecord::Schema.define(version: 20140623010927) do
   create_table "locations", force: true do |t|
     t.string   "category"
     t.string   "placename"
-    t.string   "address_1"
-    t.string   "town"
-    t.string   "postcode"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -49,9 +46,9 @@ ActiveRecord::Schema.define(version: 20140623010927) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "timezone",           default: "Eastern Time (US & Canada)"
-    t.string   "state"
-    t.string   "lat"
-    t.string   "lng"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
   end
 
   add_index "locations", ["user_id"], name: "index_locations_on_user_id"

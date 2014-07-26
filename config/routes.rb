@@ -1,8 +1,10 @@
 Pinteresting::Application.routes.draw do
- 
 
 
-  resources :events
+
+  resources :events, only: [:show] do
+    get 'nearby', :on => :collection
+  end
 
   resources :locations
 
