@@ -17,10 +17,8 @@ module Api
 	    @locations.each do |location|
 	      @events = Event.select("eventname, eventstart, eventend, eventdesc, image_file_name").where(:location_id => location.id)
 	      @events.each do |event|
-	      	puts view_context.image_tag(location.image.url(:thumb))
 	      	@tag =  view_context.image_tag(location.image.url(:thumb))
 	      	@img_url = @tag.slice(@tag.index("src")+5, @tag.index("/>") - @tag.index("src") - 7)
-	      	puts @img_url
 	        @nearby_events_hash = { location: location, event: event, image_url: @img_url}
 	        if @nearby_events.empty?
 	          @nearby_events.push(@nearby_events_hash)

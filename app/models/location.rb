@@ -2,6 +2,6 @@ class Location < ActiveRecord::Base
 	belongs_to :user
 	has_many :events
 	geocoded_by :address
-	has_attached_file :image, :styles => { :medium => "300x300#", :thumb => "120x120#" }, :default_url => "/images/best-time-default.png"
+	has_attached_file :image, :styles => { :medium => "300x300", :small => "100x100", :thumb => "50x50" }, :default_url => "/images/best-time-default.png"
 	
 end
