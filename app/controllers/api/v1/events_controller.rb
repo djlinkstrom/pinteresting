@@ -15,9 +15,10 @@ module Api
         @nearby_events = []
 	    @locations= view_context.getNearbyLocations()
 	    @locations.each do |location|
-	      @events = Event.select("eventname, eventstart, eventend, eventdesc").where(:location_id => location.id)
+	      @events = Event.select("eventname, eventstart, eventend, eventdesc, image_file_name").where(:location_id => location.id)
 	      @events.each do |event|
-	        @nearby_events_hash = { location: location, event: event, image_url: event.image_url}
+	      	puts request.host + event.image.url
+	        @nearby_events_hash = { location: location, event: event, image_url: event.image.url}
 	        if @nearby_events.empty?
 	          @nearby_events.push(@nearby_events_hash)
 	        else

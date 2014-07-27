@@ -3,6 +3,6 @@ class Event < ActiveRecord::Base
 	has_attached_file :image, :styles => { :medium => "300x300#", :thumb => "120x120#" }, :default_url => "/images/best-time-default.png"
 
 	def image_url
-        image.url(:thumb)
+        self.image.url(:thumb)
     end
 end
