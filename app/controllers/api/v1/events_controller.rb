@@ -17,7 +17,7 @@ module Api
 	    @locations.each do |location|
 	      @events = Event.select("eventname, eventstart, eventend, eventdesc").where(:location_id => location.id)
 	      @events.each do |event|
-	        @nearby_events_hash = { location: location, event: event}
+	        @nearby_events_hash = { location: location, event: event, image_url: event.image_url}
 	        if @nearby_events.empty?
 	          @nearby_events.push(@nearby_events_hash)
 	        else
@@ -31,6 +31,8 @@ module Api
 	      end
 	    end
         respond_with @nearby_events
+
+
       end
       
       def create
