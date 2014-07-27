@@ -17,8 +17,8 @@ module Api
 	    @locations.each do |location|
 	      @events = Event.select("eventname, eventstart, eventend, eventdesc, image_file_name").where(:location_id => location.id)
 	      @events.each do |event|
-	      	puts request.host + event.image.url
-	        @nearby_events_hash = { location: location, event: event, image_url: event.image.url}
+	      	puts request.protocol + request.host_with_port + event.image.url(:thumb)
+	        @nearby_events_hash = { location: location, event: event, image_url: event.image.url(:thumb)}
 	        if @nearby_events.empty?
 	          @nearby_events.push(@nearby_events_hash)
 	        else
