@@ -1,9 +1,7 @@
 Geocoder.configure(
 
   # IP address geocoding service (see below for supported options):
-  lookup: :bing,
-  key: ENV['BING_GEOCODE_ID'],
-  cache: Rails.cache,
+
 
   # geocoding options
   # :timeout      => 3,           # geocoding service timeout (secs)
