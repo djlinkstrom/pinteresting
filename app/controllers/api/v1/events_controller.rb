@@ -13,13 +13,15 @@ module Api
 
       def nearby
         @nearby_events = []
-	    @locations= view_context.getNearbyLocations()
-	    @locations.each do |location|
+	      @locations= view_context.getNearbyLocations()
+	      @locations.each do |location|
 	      @events = Event.select("eventname, eventstart, eventend, eventdesc, image_file_name").where(:location_id => location.id)
 	      @events.each do |event|
 	      	@tag =  view_context.image_tag(location.image.url(:thumb))
 	      	@img_url = @tag.slice(@tag.index("src")+5, @tag.index("/>") - @tag.index("src") - 7)
 	        @nearby_events_hash = { location: location, event: event, image_url: @img_url}
+          puts "$$$$$$$$$"
+          puts "New Event"
 	        if @nearby_events.empty?
 	          @nearby_events.push(@nearby_events_hash)
 	        else
@@ -32,7 +34,9 @@ module Api
 	        end
 	      end
 	    end
-        respond_with @nearby_events
+      puts"$$$$$$$$$$"
+      puts @nearby_events.length
+      respond_with @nearby_events
 
 
       end
