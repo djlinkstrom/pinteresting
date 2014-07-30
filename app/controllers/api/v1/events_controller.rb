@@ -16,15 +16,11 @@ module Api
         @nearby_events = []
 	      @locations= view_context.getNearbyLocations()
 	      @locations.each do |location|
-	      @events = Event.select("eventname, eventstart, eventend, eventdesc, image_file_name").where(:location_id => location.id).where("eventstart > ?", time)
+	      @events = Event.where(:location_id => location.id).where("eventstart > ?", time)
 	      @events.each do |event|
-	      	@tag =  view_context.image_tag(location.image.url(:thumb))
-          @tag2 =  view_context.image_tag(event.image.url(:thumb))
+	      	@tag =  view_context.image_tag(event.image.url(:thumb))
           puts "$$$$$$$$$"
           puts "New Event"
-          puts event.image.url(:small)
-          puts location.image.url(:thumb)
-
 	      	@img_url = @tag.slice(@tag.index("src")+5, @tag.index("/>") - @tag.index("src") - 7)
 	        @nearby_events_hash = { location: location, event: event, image_url: @img_url}
 	        if @nearby_events.empty?
