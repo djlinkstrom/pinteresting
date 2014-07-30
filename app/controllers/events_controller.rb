@@ -13,10 +13,11 @@ class EventsController < ApplicationController
   end
 
   def nearby
+    time = Time.now
     @nearby_events = []
     @locations= view_context.getNearbyLocations()
     @locations.each do |location|
-      @events = Event.where(:location_id => location.id)
+      @events = Event.where(:location_id => location.id).where("eventstart > ?", time)
       @events.each do |event|
         @nearby_events_hash = { location: location, event: event}
         if @nearby_events.empty?
