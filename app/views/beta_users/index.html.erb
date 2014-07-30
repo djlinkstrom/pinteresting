@@ -29,24 +29,25 @@
         <!-- /.container -->
     </nav>
       <div class="intro-header">
+
         <div class="container">
           <div class="row">
               <div class="col-lg-12">
-                  <div class="intro-message">
+                  <div class="intro-message" >
                       <h1>Plan better social events, faster.</h1><br />  
                       <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                              <%= image_tag "apple_appstore_comingsoon.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive " %>
+                              <%= image_tag "apple_appstore_comingsoon.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive center-block" %>
 
                             </li>
                             <li>
-                                <%= image_tag "google_playstore_comingsoon.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive " %>
+                                <%= image_tag "google_playstore_comingsoon.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive center-block" %>
                             </li> 
                           </ul> 
                         <hr class="intro-divider">                  
                       <h3 class="text-center-white">Here's your chance to be one of the first users!</h3><br />                      
-                      <div class="custom-center">
+                      <div class="">
                         <%= form_for(@beta_user) do |f| %>
                           <div class="custom-center muted">
                               <%= f.text_field :email, size: "35", placeholder: "Enter your email address" %>
