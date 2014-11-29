@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140724225912) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "timezone",           default: "Eastern Time (US & Canada)"
+    t.string   "timezone"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
