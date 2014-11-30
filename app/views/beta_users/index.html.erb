@@ -39,11 +39,11 @@
                       
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                              <a href = "https://itunes.apple.com/us/app/besttime-easy-social-event/id932179791?ls=1"><%= image_tag "Download_AppStore.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive center-block" %></a>
+                              <a href = "https://itunes.apple.com/us/app/besttime-easy-social-event/id932179791?ls=1" onclick="ga('send', 'event', 'button', 'click', 'download buttons', 1);"><%= image_tag "Download_AppStore.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive center-block" %></a>
 
                             </li>
                             <li>
-                                <a href="https://play.google.com/store/apps/details?id=com.besttime.mobiloitte"><%= image_tag "google-play.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive center-block" %></a>
+                                <a href="https://play.google.com/store/apps/details?id=com.besttime.mobiloitte" onclick="alert('here');"><%= image_tag "google-play.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive center-block" %></a>
                             </li> 
                           </ul> 
                         <hr class="intro-divider">                  
@@ -167,3 +167,11 @@
 
 
 </div>
+
+
+<script>
+        ga('send', 'screenview', {
+            'screenName': 'index'
+        });
+    //_gaq.push(['_trackPageview', 'index']);
+</script>
