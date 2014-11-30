@@ -39,11 +39,11 @@
                       
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                              <a href = "https://itunes.apple.com/us/app/besttime-easy-social-event/id932179791?ls=1" onclick="ga('send', 'event', 'button', 'click', 'download buttons', 1);"><%= image_tag "Download_AppStore.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive center-block" %></a>
+                              <a href = "https://itunes.apple.com/us/app/besttime-easy-social-event/id932179791?ls=1" onclick="ga('send', 'event', 'button', 'click', 'ios button', 1);"><%= image_tag "Download_AppStore.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive center-block" %></a>
 
                             </li>
                             <li>
-                                <a href="https://play.google.com/store/apps/details?id=com.besttime.mobiloitte" onclick="alert('here');"><%= image_tag "google-play.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive center-block" %></a>
+                                <a href="https://play.google.com/store/apps/details?id=com.besttime.mobiloitte" onclick="ga('send', 'event', 'button', 'click', 'android button', 1);"><%= image_tag "google-play.png", alt: "BestTime iPhone App coming soon to app store", class:"img-responsive center-block" %></a>
                             </li> 
                           </ul> 
                         <hr class="intro-divider">                  
@@ -159,7 +159,7 @@
           <div class="row custom-center">
             <div class="col-md-12">
                   <h2 class="text-white">
-                    Publish your business's calendar on BestTime <br /><br/><%= link_to "Learn More", home_path, class:"btn btn-lg btn-info" %>
+                    Publish your business's calendar on BestTime <br /><br/><%= link_to "Learn More", home_path, class:"btn btn-lg btn-info", :onclick => 'ga("send", "event", "button", "click", "learn more", 1);' %>
                   </h2>
             </div>
           </div>
